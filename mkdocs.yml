@@ -1,0 +1,46 @@
+site_name: 'Epirus Docs'
+site_description: 'Documentation portal for Epirus blockchain explorer'
+site_author: 'Web3 Labs'
+site_url: 'https://www.web3labs.com'
+
+# Repository
+repo_name: 'blk-io/epirus.github.io'
+repo_url: 'https://github.com/blk-io/epirus.github.io'
+
+# Copyright
+copyright: 'Copyright &copy; 2017-2019 Web3 Labs Ltd'
+
+# Configuration
+theme:
+  name: 'material'
+  language: 'en'
+  palette:
+    primary: 'indigo'
+    accent: 'indigo'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+
+# Customization
+extra:
+  manifest: 'manifest.webmanifest'
+  social:
+    - type: 'github'
+      link: 'https://github.com/blk-io'
+    - type: 'twitter'
+      link: 'https://twitter.com/web3labs'
+    - type: 'linkedin'
+      link: 'https://linkedin.com/in/web3labs'
+
+# Google Analytics
+google_analytics:
+  - 'UA-XXXXXXXX-X'
+  - 'auto'
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
