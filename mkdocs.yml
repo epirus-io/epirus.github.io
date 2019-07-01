@@ -1,4 +1,4 @@
-site_name: 'Epirus Docs'
+site_name: 'Epirus Blockchain Explorer'
 site_description: 'Documentation portal for Epirus blockchain explorer'
 site_author: 'Web3 Labs'
 site_url: 'https://www.web3labs.com'
@@ -10,16 +10,22 @@ repo_url: 'https://github.com/blk-io/epirus.github.io'
 # Copyright
 copyright: 'Copyright &copy; 2017-2019 Web3 Labs Ltd'
 
+nav:
+- 'index.md'
+- 'getting_started.md'
+- 'features.md'
+- 'metadata.md'
+- 'tagging.md'
+- 'rest.md'
+- 'faqs.md'
+
 # Configuration
 theme:
   name: 'material'
+  custom_dir: 'theme'
   language: 'en'
-  palette:
-    primary: 'indigo'
-    accent: 'indigo'
-  font:
-    text: 'Roboto'
-    code: 'Roboto Mono'
+  logo: 'img/web3labs_logo.png'
+  favicon: 'img/favicon.ico'
 
 # Customization
 extra:
@@ -32,6 +38,9 @@ extra:
     - type: 'linkedin'
       link: 'https://linkedin.com/in/web3labs'
 
+extra_css:
+  - 'stylesheets/extra.css'
+
 # Google Analytics
 google_analytics:
   - 'UA-XXXXXXXX-X'
@@ -42,5 +51,8 @@ markdown_extensions:
   - admonition
   - codehilite:
       guess_lang: false
+  - pymdownx.details
   - toc:
       permalink: true
+      toc_depth: 3
+
