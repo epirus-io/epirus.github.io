@@ -1,8 +1,14 @@
 # Getting Started
 
-Epirus supports a number of different hosting options which all come with support from the 
-Web3 Labs team. You can find it in the Azure Marketplace, with a free trial, and we also 
-provide hosted SaaS versions with authenticated access.
+Epirus supports a number of different hosting options which all come with support from the Web3 Labs team:
+
+1. You can find it in the [Azure Marketplace](https://web3labs.com/azure-offer) 
+1. We also provide a hosted or on-premise [Enterprise](#enterprise) version
+
+There is also a basic [Free](#free) version.
+
+This documentation reflects the features of our Azure and Enterprise versions.
+
 
 
 ## Azure
