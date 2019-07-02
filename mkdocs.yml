@@ -17,6 +17,7 @@ nav:
 - 'metadata.md'
 - 'tagging.md'
 - 'rest.md'
+- 'mobile.md'
 - 'faqs.md'
 
 # Configuration
@@ -43,7 +44,7 @@ extra_css:
 
 # Google Analytics
 google_analytics:
-  - 'UA-XXXXXXXX-X'
+  - 'UA-132980710-2'
   - 'auto'
 
 # Extensions
