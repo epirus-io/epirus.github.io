@@ -40,6 +40,6 @@ From the registry you can view all of your contracts with associated metadata.
 
 ![Metadata Registry](img/metadata_registry.png)
 
-By clicking on one of the metadata file names, you wil be taken to a view of all contracts associated with that metadata file.
+By clicking on one of the metadata file names, you will be taken to a view of all contracts associated with that metadata file.
 
 ![Metadata details](img/metadata_details.png)
