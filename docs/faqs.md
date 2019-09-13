@@ -6,6 +6,9 @@
 ??? info "Is it possible to customise Epirus?"
     Yes, its possible to customise numerous parts of Epirus, including the logos, colors and currency that users see. Please [email us](mailto:support@web3labs.com) for more information.
     
+??? info "Where can I find the Epirus URL on Azure?"
+    Please head to the [Getting Started](getting_started.md#azure) section for instructions.
+    
 ??? info "Are you hiring?"
     Please head to our [jobs portal](https://web3labs.workable.com/) for current listings.
 

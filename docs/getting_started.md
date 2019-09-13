@@ -22,7 +22,7 @@ You will need to provide details of your managed ledger (or Ethereum/Quorum) nod
 
 Then copy the HTTPS access keys with node URL, such as `https://<your-service>.blockchain.azure.com:3200/<acess-key>`
 
-You will be able to access the Explorer UI via `http://<instance-name>.<region>.cloudapp.azure.com`
+You will be able to access the Explorer UI via `http://<instance-name>-<uuid>.<region>.cloudapp.azure.com`
 
 To view the actual URL, navigate to the Overview page for the resource group you used for Epirus, then head to `Deployments -> blk-technologies.... -> Outputs -> epirusUrl`.
 
