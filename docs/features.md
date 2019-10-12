@@ -2,6 +2,17 @@
 
 Epirus provides an intuitivie user experieince, driven by the menu on the left-hand side of the screen. Clicking on the relevent menu item will take you to the associated page.
 
+## Dashboard
+
+The Epirus dashboard provides a summary of key metrics of the blockchain contracts, including:
+
+- Total transctions and token contracts
+- Graphical transaction count broken down by transaction type (contract creation, contract transaction, currency transfer)
+- Most active contracts
+- Fungible (ERC20) versus non-fungible token contracts (ERC721)
+
+![Dashboard view](img/dashboard.png)
+
 ## Tokens
 
 The tokens view provides a view of all tokens deployed in the network, with separate labels for 

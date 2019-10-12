@@ -2,14 +2,44 @@
 
 Epirus supports a number of different hosting options which all come with support from the Web3 Labs team:
 
-1. You can find it in the [Azure Marketplace](https://web3labs.com/azure-offer) 
-1. We also provide a hosted or on-premise [Enterprise](#enterprise) version
+1. Cloud - you can find it in the [AWS](https://web3labs.com/aws-offer) and [Azure](https://web3labs.com/azure-offer) marketplaces
+1. SaaS - we also provide a hosted or on-premise [Enterprise](#enterprise) version
 
 There is also a basic [Free](#free) version.
 
-This documentation reflects the features of our Azure and Enterprise versions.
+This documentation reflects the features of our AWS, Azure and Enterprise versions.
 
+## AWS
 
+The [AWS Marketplace offer](https://web3labs.com/aws-offer) provides a pre-configured VM with 
+Epirus already installed. It requires an active AWS subscription.
+
+![AWS Marketplace offer](img/aws_offer.png)
+
+You will need to provide details of the RPC endpoint for your Hyperledger Besu/Quorum/Ethereum node. 
+
+Then copy the HTTPS access keys with node URL, such as `http://<your-service>:8545`
+
+Once the virtual machine has been deployed, launch a terminal on the machine. Then run the following command to configure the node:
+
+```bash
+$ sudo epirus init
+Please enter node URL: http://<your-service>:8545
+Successfully connected to http://<your-service>:8545
+Configuration written to /usr/local/src/epirus/epirus.conf
+
+You can then start the Epirus service:
+
+$ sudo systemctl start epirus.service
+```
+
+You will be able to access the Explorer UI via `http://vm-ip-address-or-hostname`
+
+Please allow a few minutes for the service to fully initialise and display data when initially run. It will automatically start up on subsequent reboots.
+
+![loading screen](img/loading.png)
+
+Please note, it can take a while (multiple hours) to display token and contract details as it needs to process the entire blockchain history.
 
 ## Azure
 
@@ -18,7 +48,7 @@ to get up and running with. It requires an active Azure cloud subscription
 
 ![Azure Marketplace offer](img/azure_offer.png)
 
-You will need to provide details of your managed ledger (or Ethereum/Quorum) node. In your Azure portal, navigate to the Azure Blockchain Service instance you wish to use. From here click `Transaction nodes -> <your-transaction-node> -> Connection strings`
+You will need to provide details of your managed ledger (or Ethereum/Quorum/Hyperledger Besu) node. In your Azure portal, navigate to the Azure Blockchain Service instance you wish to use. From here click `Transaction nodes -> <your-transaction-node> -> Connection strings`
 
 Then copy the HTTPS access keys with node URL, such as `https://<your-service>.blockchain.azure.com:3200/<acess-key>`
 
