@@ -1,11 +1,11 @@
 # Overview
 
-<iframe src="https://player.vimeo.com/video/333204985" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+![Epirus dashboard](img/dashboard.png)
 
 The Epirus blockchain explorer and smart contract registry is the go-to platform for both
 business and technical users for working with blockchain networks.
 
-![Epirus dashboard](img/dashboard.png)
+<iframe src="https://player.vimeo.com/video/333204985" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 It provides a rich interface for interpreting data on your ledger, with detailed views of:
 

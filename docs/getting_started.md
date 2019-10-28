@@ -18,14 +18,21 @@ Epirus already installed. It requires an active AWS subscription.
 
 You will need to provide details of the RPC endpoint for your Hyperledger Besu/Quorum/Ethereum node. 
 
-Then copy the HTTPS access keys with node URL, such as `http://<your-service>:8545`
+Then copy the HTTPS access keys with node URL, such as `http://<your-service-url>`
 
-Once the virtual machine has been deployed, launch a terminal on the machine. Then run the following command to configure the node:
+Once the virtual machine has been deployed, launch a terminal on the machine. Then run the following command to configure the node (**please note AWS requires authentication credentials to be configured**):
 
 ```bash
-$ sudo epirus init
-Please enter node URL: http://<your-service>:8545
-Successfully connected to http://<your-service>:8545
+$ sudo epirus setup
+Configuring Epirus instance
+
+Please enter a username: <enter username>
+New password: <enter password>
+Re-type new password: <re-enterpassword>
+Adding password for user <username>
+
+Please enter node URL: http://<your-service-url>
+Successfully connected to http://<your-service-url>
 Configuration written to /usr/local/src/epirus/epirus.conf
 
 You can then start the Epirus service:
@@ -33,13 +40,19 @@ You can then start the Epirus service:
 $ sudo systemctl start epirus.service
 ```
 
-You will be able to access the Explorer UI via `http://vm-ip-address-or-hostname`
+You will be able to access the Explorer UI via `http://vm-ip-address-or-hostname`, providing the authentication credentials you specified when prompted.
 
 Please allow a few minutes for the service to fully initialise and display data when initially run. It will automatically start up on subsequent reboots.
 
 ![loading screen](img/loading.png)
 
 Please note, it can take a while (multiple hours) to display token and contract details as it needs to process the entire blockchain history.
+
+If you need to modify or create additional access credentials, you can use the following command:
+
+```bash
+sudo epirus passwd <new or existing username>
+```
 
 ## Azure
 
