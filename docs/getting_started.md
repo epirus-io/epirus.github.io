@@ -18,6 +18,13 @@ Epirus already installed. It requires an active AWS subscription.
 
 You will need to provide details of the RPC endpoint for your Hyperledger Besu/Quorum/Ethereum node. 
 
+
+Copy the RPC endpoint for your node, such as `http://<your-service-url>:8545` (the default RPC port is 8545). This is the same URL you use to attach a console to your node - i.e. `geth attach http://<your-service-url>:8545` (for more information, head [here](https://github.com/ethereum/wiki/wiki/JSON-RPC#json-rpc-endpoint)).
+
+Once the virtual machine has been deployed, launch a terminal on the machine:
+
+ssh -i <keyfile> ubuntu@<machine name>
+
 Then copy the HTTPS access keys with node URL, such as `http://<your-service-url>`
 
 Once the virtual machine has been deployed, launch a terminal on the machine. Then run the following command to configure the node (**please note AWS requires authentication credentials to be configured**):
