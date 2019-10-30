@@ -54,6 +54,7 @@ markdown_extensions:
   - codehilite:
       guess_lang: false
   - pymdownx.details
+  - pymdownx.superfences
   - toc:
       permalink: true
       toc_depth: 3

@@ -43,19 +43,21 @@ Copy the RPC endpoint for your node, such as `http://<your-service-url>:8545` (t
 
 Once the virtual machine has been deployed, launch a terminal on the machine:
 
+```console
 ssh -i <keyfile> ubuntu@<machine name>
+```
 
 Then copy the HTTPS access keys with node URL, such as `http://<your-service-url>`
 
 Once the virtual machine has been deployed, launch a terminal on the machine. Then run the following command to configure the node (**please note AWS requires authentication credentials to be configured**):
 
-```bash
+```console
 $ sudo epirus setup
 Configuring Epirus instance
 
 Please enter a username: <enter username>
 New password: <enter password>
-Re-type new password: <re-enterpassword>
+Re-type new password: <re-enter password>
 Adding password for user <username>
 
 Please enter node URL: http://<your-service-url>
@@ -77,7 +79,7 @@ Please note, it can take a while (multiple hours) to display token and contract 
 
 If you need to modify or create additional access credentials, you can use the following command:
 
-```bash
+```console
 sudo epirus passwd <new or existing username>
 ```
 
