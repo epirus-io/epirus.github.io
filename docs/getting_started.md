@@ -9,6 +9,27 @@ There is also a basic [Free](#free) version.
 
 This documentation reflects the features of our AWS, Azure and Enterprise versions.
 
+## Azure
+
+The [Azure Marketplace offer](https://web3labs.com/azure-offer) is the simplest full version of Epirus 
+to get up and running with. It requires an active Azure cloud subscription
+
+![Azure Marketplace offer](img/azure_offer.png)
+
+You will need to provide details of your managed ledger (or Ethereum/Quorum/Hyperledger Besu) node. In your Azure portal, navigate to the Azure Blockchain Service instance you wish to use. From here click `Transaction nodes -> <your-transaction-node> -> Connection strings`
+
+Then copy the HTTPS access keys with node URL, such as `https://<your-service>.blockchain.azure.com:3200/<acess-key>`
+
+You will be able to access the Explorer UI via `http://<instance-name>-<uuid>.<region>.cloudapp.azure.com`
+
+To view the actual URL, navigate to the Overview page for the resource group you used for Epirus, then head to `Deployments -> blk-technologies.... -> Outputs -> epirusUrl`.
+
+Please allow a few minutes for the service to fully initialise and display data when initially run. You will see the below loading screen while it is initially loading.
+
+![loading screen](img/loading.png)
+
+Please note, it can take a while (multiple hours) to display token and contract details as it needs to process the entire blockchain history.
+
 ## AWS
 
 The [AWS Marketplace offer](https://web3labs.com/aws-offer) provides a pre-configured VM with 
@@ -17,7 +38,6 @@ Epirus already installed. It requires an active AWS subscription.
 ![AWS Marketplace offer](img/aws_offer.png)
 
 You will need to provide details of the RPC endpoint for your Hyperledger Besu/Quorum/Ethereum node. 
-
 
 Copy the RPC endpoint for your node, such as `http://<your-service-url>:8545` (the default RPC port is 8545). This is the same URL you use to attach a console to your node - i.e. `geth attach http://<your-service-url>:8545` (for more information, head [here](https://github.com/ethereum/wiki/wiki/JSON-RPC#json-rpc-endpoint)).
 
@@ -60,28 +80,6 @@ If you need to modify or create additional access credentials, you can use the f
 ```bash
 sudo epirus passwd <new or existing username>
 ```
-
-## Azure
-
-The [Azure Marketplace offer](https://web3labs.com/azure-offer) is the simplest full version of Epirus 
-to get up and running with. It requires an active Azure cloud subscription
-
-![Azure Marketplace offer](img/azure_offer.png)
-
-You will need to provide details of your managed ledger (or Ethereum/Quorum/Hyperledger Besu) node. In your Azure portal, navigate to the Azure Blockchain Service instance you wish to use. From here click `Transaction nodes -> <your-transaction-node> -> Connection strings`
-
-Then copy the HTTPS access keys with node URL, such as `https://<your-service>.blockchain.azure.com:3200/<acess-key>`
-
-You will be able to access the Explorer UI via `http://<instance-name>-<uuid>.<region>.cloudapp.azure.com`
-
-To view the actual URL, navigate to the Overview page for the resource group you used for Epirus, then head to `Deployments -> blk-technologies.... -> Outputs -> epirusUrl`.
-
-Please allow a few minutes for the service to fully initialise and display data when initially run. You will see the below loading screen while it is initially loading.
-
-![loading screen](img/loading.png)
-
-Please note, it can take a while (multiple hours) to display token and contract details as it needs to process the entire blockchain history.
-
 
 ## Enterprise
 
