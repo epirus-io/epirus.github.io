@@ -122,7 +122,7 @@ Append the `-d` argument to run the containers in the backgroud
 
 You will be able to access the Explorer UI via:
 
-http://localhost/
+[http://localhost](http://localhost/)
 
 To stop the containers use:
 
