@@ -103,7 +103,9 @@ For further information please [email us](mailto:hi@web3labs.com).
 
 A free, feature limited version of Epirus is available. This version is updated periodically, unlike the Azure and SaaS offerings which are constantly being updated with the latest features.
 
-To get started with the free version, run the following command to download Epirus:
+To get started with the free version, you'll need [Git](https://git-scm.com/) installed and an Ethereum, Hyperledger Besu or Quorum node endpoint. 
+
+Run the following command to download Epirus:
 
 ```bash
 git clone https://github.com/blk-io/epirus-free.git
