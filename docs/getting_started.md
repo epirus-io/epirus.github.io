@@ -101,4 +101,38 @@ For further information please [email us](mailto:hi@web3labs.com).
 
 ## Free 
 
-A free, feature limited version of Epirus is available [here](https://github.com/blk-io/epirus-free). This version is updated periodically, unlike the Azure and SaaS offerings which are constantly being updated with the latest features.
+A free, feature limited version of Epirus is available. This version is updated periodically, unlike the Azure and SaaS offerings which are constantly being updated with the latest features.
+
+To get started with the free version, run the following command to download Epirus:
+
+```bash
+git clone https://github.com/blk-io/epirus-free.git
+```
+
+Navigate to the `epirus-free` directory directory and run the instance with:
+
+```bash
+cd epirus-free
+NODE_ENDPOINT=http://<node_endpoint> docker-compose up
+```
+
+Note that if setting `NODE_ENDPOINT` to a local Ethereum instance, you may need to use the IP address associated with the Docker bridged interface, often denoted by `docker0`.
+
+Append the `-d` argument to run the containers in the backgroud
+
+You will be able to access the Explorer UI via:
+
+http://localhost/
+
+To stop the containers use:
+
+```bash
+docker-compose down
+```
+
+To connect to new network you should remove the volumes associated with the old network
+
+```bash
+docker-compose down -v
+```
+
