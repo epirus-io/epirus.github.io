@@ -20,7 +20,17 @@ fungible or non-fungible tokens following the [ERC20](http://eips.ethereum.org/E
 
 ![Tokens view](img/tokens.png)
 
-If we click on one of our tokens, we get more information about it (as in the Contracts view), including details of all events that have taken place such as token transfers.
+If we click on one of our tokens, we get more information about it (as in the Contracts view).
+
+![Token details](img/token_details.png)
+
+Here you can see the attributes of the token.
+
+![Token attributes](img/token_attributes.png)
+
+You can also see details of the transfer events that have taken place for that token.
+
+![Token transfers](img/token_transfers.png)
 
 ## Contracts
 
@@ -59,6 +69,10 @@ When you vieiw a transaction details you will be able to view lower-level detail
 The blocks view provides details of all blocks being generated on the network. As with the transactions view, technical details are available here too under the `Additional Details` menu.
 
 ![Block details](img/block_details.png)
+
+Here you can see detailsi such as the block difficulty and gas consumed.
+
+![Block attributes](img/block_attributes.png)
 
 ## Accounts
 

@@ -2,6 +2,8 @@
 
 Epirus provides a fully responsive user experience. Although primarily intended for using with a desktop computer or laptop, we designed a great mobile experience too.
 
+![Dashboard mobile](img/dashboard_mobile.png)
+
 The mobile experience makes available all of the core functionality of the explorer such as the token, contract, address, transaction and block views along with all of the filtering and searching functionality.
 
 ## Navigation
