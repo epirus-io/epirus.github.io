@@ -21,6 +21,47 @@
     Re-type new password: <re-enter password>
     Updating password for user <username>
     ```
+??? warning "Unable to create instance on Azure - your deployment failed"
+
+    Due to a timeout issue, provisioning of Epirus has failed on Azure on some occasions.
+    
+    If you hit this issue, you will see the following error:
+    
+    ![Deployment failed](img/issue-deployment-failed/deployment_failed.png)
+    
+    The specific message is:
+
+	```
+	epirus.service failed because the control process exited with error code.
+	```
+
+    To resolve the error, you will need to logon to the host that was created. To do this, click on the virtual machine name:
+    
+    ![Deployment hostname](img/issue-deployment-failed/deployment_hostname.png)
+    
+    Then copy the DNS name of the host:
+    
+    ![Host DNS name](img/issue-deployment-failed/dns_name.png)
+    
+    Logon to the host by running:
+
+    ```
+    ssh -i ~/.ssh/<private-key> epirus@<hostname>.<region>.cloudapp.azure.com
+    ```
+
+    Then run the following to start Epirus manually:
+
+    ```
+    sudo systemctl start epirus.service
+    ```
+
+    Epirus should start, and if you head to the hostname in your browser, you should see the Epirus loading screen:
+    
+    ![Loading screen](img/loading.png)
+    
+    After a few minutes you should see Epirus has started successfully:
+    
+    ![Dashboard](img/dashboard.png)
 
 ??? warning "Unable to create instance on Azure - the template deployment is not valid"
     ![Azure creation error](img/azure_create_error.png)
