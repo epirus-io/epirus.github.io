@@ -6,7 +6,7 @@ Epirus provides an intuitivie user experieince, driven by the menu on the left-h
 
 The Epirus dashboard provides a summary of key metrics of the blockchain contracts, including:
 
-- Total transctions and token contracts
+- Total transctions, token contracts and peers
 - Graphical transaction count broken down by transaction type (contract creation, contract transaction, currency transfer)
 - Most active contracts
 - Fungible (ERC20) versus non-fungible token contracts (ERC721)
@@ -105,3 +105,9 @@ The filters provided also allow you to view subsets of the available data, such 
 displaying contract creation transactions or fungible tokens in the Tokens view.
 
 ![Filter by token type](img/filtering_tokens.png)
+
+## Peers
+
+The peers view provides insights into the peers that your node is connected to. This is usefull if you want to check that you are successfully to a wider network.
+
+![Peers dasboard](img/peers.png)
