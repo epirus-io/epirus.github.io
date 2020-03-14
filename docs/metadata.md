@@ -23,7 +23,7 @@ you want to upload is typically called `<ContractName>_meta.json`.
 
 When you run `truffle compile` a `<Contract>.json` file is generated that contains various contract information.  Within this file in addition to the `abi` and `bytecode` entries there is a `metadata` field. If you put the metadata content into a json file you should be able to upload it.
 
-### Metadata Uplaod
+### Metadata Upload
 
 There are two places that you can upload the metadata, in the contract view page under 
 `Additional Details` by clicking the `Upload` link next to `Contract Metadata`.
