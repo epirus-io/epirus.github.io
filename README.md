@@ -7,7 +7,7 @@ Make sure you have [Pipenv](https://docs.pipenv.org/en/latest/) installed.
 Then run the following to get up and running:
 
 ```bash
-git clone https://github.com/blk-io/epirus.github.io.git epirus-docs
+git clone https://github.com/epirus-io/epirus.github.io.git epirus-docs
 cd epirus-docs
 pipenv install
 pipenv shell
@@ -32,7 +32,7 @@ mkdocs gh-deploy
 In order to use a custom colour palette, we need to build our own mkdocs-material assets. This is based on the instructions listed [here](https://squidfunk.github.io/mkdocs-material/customization/#theme-development) with a few modifications:
 
 ```bash
-git clone https://github.com/blk-io/mkdocs-material.git
+git clone https://github.com/epirus-io/mkdocs-material.git
 cd mkdocs-material
 pipenv --python 3.7
 pipenv install -r requirements.txt 
