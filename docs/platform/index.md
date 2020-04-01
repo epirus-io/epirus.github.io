@@ -31,7 +31,7 @@ Please enter the project name [Web3App]:
 
 Please enter the package name for your project [io.epirus]:
 
-Please enter the destination of your project [/tmp/tmp.prot.Pfga]: 
+Please enter the destination of your project [/home/user/project]: 
 
 [ \ ] Creating Web3App
 Project Created Successfully
