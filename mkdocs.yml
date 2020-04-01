@@ -8,7 +8,7 @@ repo_name: 'blk-io/epirus.github.io'
 repo_url: 'https://github.com/blk-io/epirus.github.io'
 
 # Copyright
-copyright: 'Copyright &copy; 2017-2019 Web3 Labs Ltd'
+copyright: 'Copyright &copy; 2017-2020 Web3 Labs Ltd'
 
 nav:
 - 'index.md'
@@ -42,7 +42,7 @@ extra:
   manifest: 'manifest.webmanifest'
   social:
     - type: 'github'
-      link: 'https://github.com/blk-io'
+      link: 'https://github.com/epirus-io'
     - type: 'twitter'
       link: 'https://twitter.com/web3labs'
     - type: 'linkedin'

@@ -1,7 +1,6 @@
-Commandline Interface
-=========
+# CLI
 
-A web3j binary is distributed with each release providing an interactive command line (CLI). It allows you to use some of the key functionality of web3j from your terminal, including:
+An Epirus binary is distributed, providing an interactive command line (CLI). It allows you to use some of Epirus' key functionality from your terminal, including:
 
 - New project creation
 - Project creation from existing Solidity code
@@ -11,6 +10,8 @@ A web3j binary is distributed with each release providing an interactive command
 - Generation of Solidity smart contract wrappers
 - Generation of unit tests for Java smart contract wrappers
 - Smart contract auditing
+- Account creation & management
+- Wallet funding
 
 Installation
 ------------
@@ -23,16 +24,21 @@ The simplest way to install the Epirus CLI is via the following script:
 curl -L get.epirus.io | sh && source ~/.epirus/source.sh
 ```
 
-You can verify the installation was successful by running th Epirus command:
+You can verify the installation was successful by running `epirus version`, which should output as follows:
 
 ```bash
-epirus version
 
-Version: 4.5.5
-Build timestamp: 2019-09-24 16:00:04.332 UTC
+  ______       _                
+ |  ____|     (_)               
+ | |__   _ __  _ _ __ _   _ ___ 
+ |  __| | '_ \| | '__| | | / __|
+ | |____| |_) | | |  | |_| \__ \
+ |______| .__/|_|_|   \__,_|___/
+        | |                     
+        |_|                     
+Version: 0.9.1
+Build timestamp: 2020-03-31 11:39:28.526 UTC
 ```
-
-If you encounter problems with the installation, please refer to the manual installation instructions [below](#manual-installation).
 
 
 Epirus new & import
@@ -61,30 +67,30 @@ epirus new
 You will be prompted to answer a series of questions to create your project:
 
 ```bash
-$ epirus new  
-
+  ______       _                
+ |  ____|     (_)               
+ | |__   _ __  _ _ __ _   _ ___ 
+ |  __| | '_ \| | '__| | | / __|
+ | |____| |_) | | |  | |_| \__ \
+ |______| .__/|_|_|   \__,_|___/
+        | |                     
+        |_|                     
 Please enter the project name [Web3App]:
-MyProject
+
 Please enter the package name for your project [io.epirus]:
-com.web3labs.eth
-Please enter the destination of your project [/home/user/Documents/myfolder]: 
-myproject
-Downloading https://services.gradle.org/distributions/gradle-5.0-bin.zip
-...................................................................
-Done
-Project MyProject created at location: myproject
-..............
 
-Welcome to Gradle 5.0!
+Please enter the destination of your project [/home/user/project]: 
 
-Here are the highlights of this release:
- - Kotlin DSL 1.0
- - Task timeouts
- - Dependency alignment aka BOM support
- - Interactive `gradle init`
+[ | ] Creating Web3App
+Project Created Successfully
 
-For more details see https://docs.gradle.org/5.0/release-notes.html
+Project information
+Wallet Address      0xf042183586d45c3580905ce93c956e4eb1303a1e
 
+Commands
+./gradlew run       Runs your application
+./gradlew test      Test your application
+epirus deploy       Deploys your application
 $
 ```
 
@@ -111,14 +117,20 @@ Similarly to `epirus new`, `epirus import` will create a new  project but with u
 Again, to generate a new project interactively:
 
 ```bash
-epirus new 
+epirus import
 ``` 
 
 You will be prompted to answer a series of questions to create your project:
 
 ```bash
-$ epirus import     
-
+  ______       _                
+ |  ____|     (_)               
+ | |__   _ __  _ _ __ _   _ ___ 
+ |  __| | '_ \| | '__| | | / __|
+ | |____| |_) | | |  | |_| \__ \
+ |______| .__/|_|_|   \__,_|___/
+        | |                     
+        |_|  
 Please enter the project name [Web3App]:
 MyImportedProject
 Please enter the package name for your project [io.epirus]:
@@ -152,9 +164,21 @@ The `-t` option is false by default. By passing `-t` unit tests will be generate
 
 When creating a new project or importing solidity contracts, by using:
 
-`epirus generate-tests`
+```
+epirus generate-tests
 ```
 
+You will be prompted to answer a series of questions to generate your tests:
+
+```
+  ______       _                
+ |  ____|     (_)               
+ | |__   _ __  _ _ __ _   _ ___ 
+ |  __| | '_ \| | '__| | | / __|
+ | |____| |_) | | |  | |_| \__ \
+ |______| .__/|_|_|   \__,_|___/
+        | |                     
+        |_|                     
 Please enter the path of the generated contract wrappers.
 /home/user/Documents/dev/java/
 Where would you like to save your tests.
@@ -262,9 +286,20 @@ When sending Ether to another address you will be asked a series of questions be
 
 The following example demonstrates using Epirus to send Ether to another wallet.
 
-``` console
-$ ./epirus-<version>/bin/epirus wallet send <walletfile> 0x<address>|<ensName>
+For input:
+```
+epirus wallet send <walletfile> 0x<address>|<ensName>
+```
 
+``` console
+  ______       _                
+ |  ____|     (_)               
+ | |__   _ __  _ _ __ _   _ ___ 
+ |  __| | '_ \| | '__| | | / __|
+ | |____| |_) | | |  | |_| \__ \
+ |______| .__/|_|_|   \__,_|___/
+        | |                     
+        |_|  
 Please enter your existing wallet file password:
 Wallet for address 0x19e03255f667bdfd50a32722df860b1eeaf4d635 loaded
 Please confirm address of running Ethereum client you wish to send the transfer request to [http://localhost:8545/]:
@@ -306,8 +341,15 @@ $ epirus audit Campaign.sol
 ```
 
 An example of the output from this command is as follows:
-``` bash       
-
+```bash
+  ______       _                
+ |  ____|     (_)               
+ | |__   _ __  _ _ __ _   _ ___ 
+ |  __| | '_ \| | '__| | | / __|
+ | |____| |_) | | |  | |_| \__ \
+ |______| .__/|_|_|   \__,_|___/
+        | |                     
+        |_|  
 ./Campaign.sol
    131:58   severity:2   Multiplication after division                  SOLIDITY_DIV_MUL_09hhh1                              
    91:8     severity:1   Revert inside the if-operator                  SOLIDITY_REVERT_REQUIRE_c56b12                       
@@ -328,33 +370,23 @@ This functionality is provided by [SmartCheck](https://github.com/smartdec/smart
 Solidity smart contract wrapper generator
 -----------------------------------------
 
-Please refer to [Solidity smart contract wrappers](smart_contracts.md#solidity-smart-contract-wrappers).
+Please refer to [solidity smart contract wrappers](https://docs.web3j.io/smart_contracts/#solidity-smart-contract-wrappers).
 
 
-Manual installation
--------------------
-Manual installation
+Account Creation
+-----------------------------------------
 
-The command line tools can also be obtained as a zipfile/tarball from the [releases](https://github.com/epirus/epirus/releases/latest) page of the project repository, under the **Downloads** section, or for OS X users via [Homebrew](https://github.com/epirus/homebrew-epirus), or for Arch linux users via the [AUR](https://aur.archlinux.org/packages/epirus/).
-
-``` bash
-brew tap epirus/epirus
-brew install epirus
+In order to create an Epirus account to make full use of the platform features, the command `epirus account create` can be used. After account creation & email confirmation, all free platform features will be enabled. The output from the account creation process should be as follows:
 ```
-
-To run via the zipfile, simply extract the zipfile and run the binary:
-
-``` console
-$ unzip epirus-<version>.zip
-   creating: epirus-3.0.0/lib/
-  inflating: epirus-3.0.0/lib/core-1.0.2-all.jar
-   creating: epirus-3.0.0/bin/
-  inflating: epirus-3.0.0/bin/epirus
-  inflating: epirus-3.0.0/bin/epirus.bat
-$ ./epirus-<version>/bin/epirus
-
-       
-
-Usage: epirus version|wallet|solidity|new|import|generate-tests|audit ...
-
+  ______       _                
+ |  ____|     (_)               
+ | |__   _ __  _ _ __ _   _ ___ 
+ |  __| | '_ \| | '__| | | / __|
+ | |____| |_) | | |  | |_| \__ \
+ |______| .__/|_|_|   \__,_|___/
+        | |                     
+        |_|                     
+Please enter your email address: 
+youremail@yourdomain.com
+Account created successfully. You can now use Epirus Cloud. Please confirm your e-mail within 24 hours to continue using all features without interruption.
 ```
