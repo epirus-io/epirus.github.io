@@ -1,13 +1,16 @@
 language: python
 install:
-  - pip install mkdocs
-  - pip install mkdocs-material
+- pip install mkdocs
+- pip install mkdocs-material
 script:
-  - mkdocs build --verbose --clean --strict
+- mkdocs build --verbose --clean --strict
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: $GH_TOKEN
+  github_token: "$GITHUB_PERSONAL_ACCESS_TOKEN"
   local_dir: site
   on:
     branch: master
+env:
+  global:
+    secure: DjCrYvcqu8g7vWCJu9LqQ8jD74I1ttrGefnkyIo1MNg/9PuTRduVQdTid9nYJqLlpuFpHaazzJizNzBdaVrcjJqnrUS3TGZBf7ulYUMnDdUaeObhr7CgLrprf7OJcOOyaWmkebduBWI4GXlbsbTJnDR19EQMvXKywJdCdg6LWiBVlMVl6xrdUgpX5dvegFLf08hzOS6lY3uzHmv8UZaOCk0n6WQxmJy2ipml5wwco+VHACY4/ZSNY10Yw2u0E8J4Gn0pFPdRG5C/umUbD8XDxXmkbNnkF6s8P/r/v30XrPf0he4swAS6/hHIH8BHVEVK26t6HAk+WE9uz1oAgMLxrJrQJL6/n1OyOmGHutgZ0hpTS2lQZuFe+WcBtqlDDyh7IrchIuIIeYzhMi/qmG253OyIxRK3lYyc9MSqj7OuExUmukqfowyp7ZvGMFTglkBR8pC1DWcCt8pMBC6Cjcr0+ul4ozZVmhfLPsf0ItdQhRMNXS9N+Qxt51lXU4zyYLW5MPYH3aGf654Ixw6HdIJYUG3jPpprHAPU6WJn3etnX88Of8Wb98yKuBmWOfhIHW4U1olkIFGbbj/IQsqo2BzF77ACh2q+X5QpttkMnTSl0/mtjAj+cnxnMNHv2oiQRIo8njEYjf8dkDbjmcMFlRGfMAauIYPFLUgd30+nRdILedA=
