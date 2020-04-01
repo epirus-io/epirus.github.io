@@ -1,4 +1,4 @@
-site_name: 'Epirus Blockchain Explorer'
+site_name: 'Epirus Documentation'
 site_description: 'Documentation portal for the Epirus Blockchain Explorer'
 site_author: 'Web3 Labs'
 site_url: 'https://www.web3labs.com'
@@ -8,18 +8,26 @@ repo_name: 'epirus-io/epirus.github.io'
 repo_url: 'https://github.com/epirus-io/epirus.github.io'
 
 # Copyright
-copyright: 'Copyright &copy; 2017-2019 Web3 Labs Ltd'
+copyright: 'Copyright &copy; 2017-2020 Web3 Labs Ltd'
 
 nav:
 - 'index.md'
-- 'getting_started.md'
-- 'features.md'
-- 'metadata.md'
-- 'tagging.md'
-- 'rest.md'
-- 'mobile.md'
-- 'web3j.md'
-- 'faqs.md'
+- 'Epirus Platform':
+  - 'platform/index.md'
+  - 'platform/accounts.md'
+  - 'platform/cli.md'
+  - 'platform/faucets.md'
+  - 'platform/portal.md'
+- 'Epirus Blockchain Explorer':
+  - 'explorer/index.md'
+  - 'explorer/getting_started.md'
+  - 'explorer/features.md'
+  - 'explorer/metadata.md'
+  - 'explorer/tagging.md'
+  - 'explorer/rest.md'
+  - 'explorer/mobile.md'
+  - 'explorer/web3j.md'
+  - 'explorer/faqs.md'
 
 # Configuration
 theme:
