@@ -4,8 +4,8 @@ site_author: 'Web3 Labs'
 site_url: 'https://www.web3labs.com'
 
 # Repository
-repo_name: 'blk-io/epirus.github.io'
-repo_url: 'https://github.com/blk-io/epirus.github.io'
+repo_name: 'epirus-io/epirus.github.io'
+repo_url: 'https://github.com/epirus-io/epirus.github.io'
 
 # Copyright
 copyright: 'Copyright &copy; 2017-2020 Web3 Labs Ltd'

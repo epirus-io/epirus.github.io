@@ -108,7 +108,7 @@ To get started with the free version, you'll need [Git](https://git-scm.com/) in
 Run the following command to download Epirus:
 
 ```bash
-git clone https://github.com/blk-io/epirus-free.git
+git clone https://github.com/epirus-io/epirus-free.git
 ```
 
 Navigate to the `epirus-free` directory directory and run the instance with:
