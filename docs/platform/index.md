@@ -15,6 +15,10 @@ curl -L get.epirus.io | sh && source ~/.epirus/source.sh
 ## QuickStart
 To get up & running fast with Epirus, this quickstart will guide you through the account creation process, and subsequently the process of setting up a new Ethereum smart contract project.
 
+<video width="100%" controls>
+   <source src="img/epirus-quickstart.webm" type="video/mp4">
+</video>
+
 In order to create a new account, use the command `epirus account create`, and enter your email address when prompted. You will be sent an activation email. Once your email address has been confirmed, you will have an account on the Epirus platform and will be able to make use of all features.
 
 After having created a new account, use the command `epirus new` to create a new project. Epirus will use sensible defaults for all the questions asked during the project setup process, so if you hit enter on each question, the output should be similar to the following:
