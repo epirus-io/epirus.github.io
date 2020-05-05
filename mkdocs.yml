@@ -1,5 +1,5 @@
-site_name: 'Epirus Documentation'
-site_description: 'Documentation portal for the Epirus Blockchain Explorer'
+site_name: 'Epirus Platform Documentation'
+site_description: 'Documentation portal for the Epirus Platform'
 site_author: 'Web3 Labs'
 site_url: 'https://www.web3labs.com'
 
@@ -12,13 +12,15 @@ copyright: 'Copyright &copy; 2017-2020 Web3 Labs Ltd'
 
 nav:
 - 'index.md'
-- 'Epirus Platform':
-  - 'platform/index.md'
-  - 'platform/accounts.md'
-  - 'platform/cli.md'
-  - 'platform/faucets.md'
-  - 'platform/portal.md'
-- 'Epirus Blockchain Explorer':
+- 'quickstart.md'
+- 'Epirus SDK':
+  - 'sdk/index.md'
+  - 'sdk/cli.md'
+  - 'sdk/faucets.md'
+- 'Epirus Portal':
+  - 'portal/index.md'
+  - 'portal/accounts.md'
+- 'Epirus Explorer':
   - 'explorer/index.md'
   - 'explorer/getting_started.md'
   - 'explorer/features.md'
@@ -34,7 +36,7 @@ theme:
   name: 'material'
   custom_dir: 'theme'
   language: 'en'
-  logo: 'img/web3labs_logo.png'
+  logo: 'img/epirus_logo.png'
   favicon: 'img/favicon.ico'
 
 # Customization
