@@ -2,82 +2,87 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://www.web3labs.com/</loc>
-     <lastmod>2020-05-05</lastmod>
+     <lastmod>2020-05-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.web3labs.com/quickstart/</loc>
-     <lastmod>2020-05-05</lastmod>
+     <lastmod>2020-05-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.web3labs.com/sdk/</loc>
-     <lastmod>2020-05-05</lastmod>
+     <lastmod>2020-05-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.web3labs.com/sdk/cli/</loc>
-     <lastmod>2020-05-05</lastmod>
+     <lastmod>2020-05-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.web3labs.com/sdk/faucets/</loc>
-     <lastmod>2020-05-05</lastmod>
+     <lastmod>2020-05-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.web3labs.com/portal/</loc>
-     <lastmod>2020-05-05</lastmod>
+     <lastmod>2020-05-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.web3labs.com/portal/accounts/</loc>
-     <lastmod>2020-05-05</lastmod>
+     <lastmod>2020-05-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://www.web3labs.com/portal/networks/</loc>
+     <lastmod>2020-05-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.web3labs.com/explorer/</loc>
-     <lastmod>2020-05-05</lastmod>
+     <lastmod>2020-05-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.web3labs.com/explorer/getting_started/</loc>
-     <lastmod>2020-05-05</lastmod>
+     <lastmod>2020-05-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.web3labs.com/explorer/features/</loc>
-     <lastmod>2020-05-05</lastmod>
+     <lastmod>2020-05-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.web3labs.com/explorer/metadata/</loc>
-     <lastmod>2020-05-05</lastmod>
+     <lastmod>2020-05-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.web3labs.com/explorer/tagging/</loc>
-     <lastmod>2020-05-05</lastmod>
+     <lastmod>2020-05-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.web3labs.com/explorer/rest/</loc>
-     <lastmod>2020-05-05</lastmod>
+     <lastmod>2020-05-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.web3labs.com/explorer/mobile/</loc>
-     <lastmod>2020-05-05</lastmod>
+     <lastmod>2020-05-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.web3labs.com/explorer/web3j/</loc>
-     <lastmod>2020-05-05</lastmod>
+     <lastmod>2020-05-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://www.web3labs.com/explorer/faqs/</loc>
-     <lastmod>2020-05-05</lastmod>
+     <lastmod>2020-05-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
