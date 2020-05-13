@@ -20,6 +20,7 @@ nav:
 - 'Epirus Portal':
   - 'portal/index.md'
   - 'portal/accounts.md'
+  - 'portal/networks.md'
 - 'Epirus Explorer':
   - 'explorer/index.md'
   - 'explorer/getting_started.md'
