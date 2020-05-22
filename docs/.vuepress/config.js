@@ -42,8 +42,7 @@ module.exports = {
         title: 'Portal',
         path: '/portal/',
         children: [
-          '/portal/',
-          '/portal/accounts'
+          '/portal/'
         ]
       },
       {
@@ -73,6 +72,12 @@ module.exports = {
     editLinks: true,
     // custom text for edit link. Defaults to "Edit this page"
     editLinkText: 'Edit this page on GitHub',
+    keywords:
+        'Ethereum, Quorum, Hyperledger Besu, blockchain explorer, enterprise blockchain, enterpise ethereum, DApps, Java, Kotlin, Epirus, Android, Web3 Labs',
+    algolia: {
+      apiKey: '3ad7674f34d85f0d46f179bf95f49145',
+      indexName: 'epirus_docs'
+    },
     plugins: [
       ['@vuepress/plugin-back-to-top', true],
       [
