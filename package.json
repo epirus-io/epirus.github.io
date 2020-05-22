@@ -1,0 +1,37 @@
+{
+  "name": "epirus-docs",
+  "version": "0.1.0",
+  "description": "Epirus Platform Documentation",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "npm run docs:dev",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/epirus-io/epirus.github.io.git"
+  },
+  "author": "Web3 Labs",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/epirus-io/epirus.github.io/issues"
+  },
+  "homepage": "https://docs.epirus.io",
+  "devDependencies": {
+    "@vuepress/plugin-active-header-links": "^1.5.0",
+    "@vuepress/plugin-back-to-top": "^1.5.0",
+    "@vuepress/plugin-google-analytics": "^1.5.0",
+    "@vuepress/plugin-last-updated": "^1.5.0",
+    "all-relative": "^1.1.0",
+    "markdown-it-video": "^0.6.3",
+    "vuepress": "^1.5.0",
+    "vuepress-plugin-canonical": "^1.0.0",
+    "vuepress-plugin-clean-urls": "^1.1.1",
+    "vuepress-plugin-code-copy": "^1.0.6",
+    "vuepress-plugin-seo": "^0.1.3"
+  }
+}

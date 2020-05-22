@@ -14,7 +14,7 @@ This documentation reflects the features of our AWS, Azure and Enterprise versio
 The [Azure Marketplace offer](https://web3labs.com/azure-offer) is the simplest full version of Epirus 
 to get up and running with. It requires an active Azure cloud subscription
 
-![Azure Marketplace offer](img/azure_offer.png)
+![Azure Marketplace offer](./img/azure_offer.png)
 
 You will need to provide details of your managed ledger (or Ethereum/Quorum/Hyperledger Besu) node. In your Azure portal, navigate to the Azure Blockchain Service instance you wish to use. From here click `Transaction nodes -> <your-transaction-node> -> Connection strings`
 
@@ -26,7 +26,7 @@ To view the actual URL, navigate to the Overview page for the resource group you
 
 Please allow a few minutes for the service to fully initialise and display data when initially run. You will see the below loading screen while it is initially loading.
 
-![loading screen](img/loading.png)
+![loading screen](./img/loading.png)
 
 Please note, it can take a while (multiple hours) to display token and contract details as it needs to process the entire blockchain history.
 
@@ -35,7 +35,7 @@ Please note, it can take a while (multiple hours) to display token and contract 
 The [AWS Marketplace offer](https://web3labs.com/aws-offer) provides a pre-configured VM with 
 Epirus already installed. It requires an active AWS subscription.
 
-![AWS Marketplace offer](img/aws_offer.png)
+![AWS Marketplace offer](./img/aws_offer.png)
 
 You will need to provide details of the RPC endpoint for your Hyperledger Besu/Quorum/Ethereum node. 
 
@@ -43,7 +43,7 @@ Copy the RPC endpoint for your node, such as `http://<your-service-url>:8545` (t
 
 Once the virtual machine has been deployed, launch a terminal on the machine:
 
-```console
+``` shell
 ssh -i <keyfile> ubuntu@<machine name>
 ```
 
@@ -51,7 +51,7 @@ Then copy the HTTPS access keys with node URL, such as `http://<your-service-url
 
 Once the virtual machine has been deployed, launch a terminal on the machine. Then run the following command to configure the node (**please note AWS requires authentication credentials to be configured**):
 
-```console
+``` shell
 $ sudo epirus setup
 Configuring Epirus instance
 
@@ -73,13 +73,13 @@ You will be able to access the Explorer UI via `http://vm-ip-address-or-hostname
 
 Please allow a few minutes for the service to fully initialise and display data when initially run. It will automatically start up on subsequent reboots.
 
-![loading screen](img/loading.png)
+![loading screen](./img/loading.png)
 
 Please note, it can take a while (multiple hours) to display token and contract details as it needs to process the entire blockchain history.
 
 If you need to modify or create additional access credentials, you can use the following command:
 
-```console
+``` shell
 sudo epirus passwd <new or existing username>
 ```
 
@@ -107,13 +107,13 @@ To get started with the free version, you'll need [Git](https://git-scm.com/) in
 
 Run the following command to download Epirus:
 
-```bash
+``` shell
 git clone https://github.com/epirus-io/epirus-free.git
 ```
 
 Navigate to the `epirus-free` directory directory and run the instance with:
 
-```bash
+``` shell
 cd epirus-free
 NODE_ENDPOINT=http://<node_endpoint> docker-compose up
 ```
@@ -128,13 +128,13 @@ You will be able to access the Explorer UI via:
 
 To stop the containers use:
 
-```bash
+``` shell
 docker-compose down
 ```
 
 To connect to new network you should remove the volumes associated with the old network
 
-```bash
+``` shell
 docker-compose down -v
 ```
 

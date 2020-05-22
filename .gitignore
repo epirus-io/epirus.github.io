@@ -1,5 +1,9 @@
 # OS X
 .DS_Store
 
-# Generated site
-site/
+# IntelliJ
+.idea/
+
+# Node
+node_modules/
+

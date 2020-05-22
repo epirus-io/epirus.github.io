@@ -14,13 +14,13 @@ Read on to super-charge your blockchain journey!
 
 To install the Epirus CLI on your local Mac or Linux machine, run the following command in your terminal:
 
-```
+``` shell
 curl -L get.epirus.io | sh && source ~/.epirus/source.sh
 ```
 
 For Windows, run the following in PowerShell:
 
-```
+``` powershell
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/epirus-io/epirus-installer/master/installer.ps1'))
 ```
 
@@ -44,7 +44,8 @@ You will need to be logged in to deploy Epirus applications. Use `epirus login` 
 
 After having created a new account, use the command `epirus new` to create a new project. Epirus will use sensible defaults for all the questions asked during the project setup process, so if you hit enter on each question, the output should be similar to the following:
 
-```
+``` shell
+$ epirus new
   ______       _                
  |  ____|     (_)               
  | |__   _ __  _ _ __ _   _ ___ 
@@ -77,7 +78,7 @@ Epirus has now created and built a full project, which includes a *Hello World* 
 
 Using the `epirus deploy` command, you will be able to deploy your code to the Rinkeby and Ropsten Ethereum test networks, from the wallet address that Epirus generated for you (this wallet will be automatically funded with testnet Ether by Epirus during the contract deploy process).
 
-```
+``` shell
 $ epirus deploy rinkeby
   ______       _                
  |  ____|     (_)               
@@ -109,21 +110,21 @@ Two URLs are output by the Epirus SDK `deploy` command following a successful de
 
 If you head to the contract view, you can dig into details of your smart contract.
 
-![View contract in Epirus Explorer](img/explorer_contract.png)
+![View contract in Epirus Explorer](./img/explorer_contract.png)
 
 There will be a single transaction which was the transaction that deployed your contract.
 
 If you hover over the `constructor` field you will see the Hello World message that was in your smart contract that has now been deployed to the globally decentralized public Ethereum network!
 
-![View Hello World in Epirus Explorer](img/explorer_helloworld.png)
+![View Hello World in Epirus Explorer](./img/explorer_helloworld.png)
 
 The other view provides details of all transactions associated with your recently created wallet file. This was created when you ran the `epirus new` command, and funded with the cryptocurrency Ether when you ran `epirus deploy`. This funding activity allows you to pay for transactions on the public Ethereum network.
 
-![View wallet in Epirus Explorer](img/explorer_wallet.png)
+![View wallet in Epirus Explorer](./img/explorer_wallet.png)
 
 Finally, click on the Dashboard link in Epirus Explorer to see an overview of the public Ethereum network your contract was deployed to.
 
-![Epirus Explorer Dashboard](img/explorer_dashboard.png)
+![Epirus Explorer Dashboard](./img/explorer_dashboard.png)
 
 You can learn more about the Epirus Explorer [here](/explorer).
 

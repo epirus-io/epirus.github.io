@@ -20,13 +20,13 @@ Installation
 
 The simplest way to install the Epirus CLI is via the following script:
 
-```bash
+``` shell
 curl -L get.epirus.io | sh && source ~/.epirus/source.sh
 ```
 
 You can verify the installation was successful by running `epirus version`, which should output as follows:
 
-```bash
+``` shell
 
   ______       _                
  |  ____|     (_)               
@@ -60,13 +60,13 @@ These commands provide the following functionality:
 
 To generate a new project interactively:
 
-```bash
+``` shell
 epirus new 
 ``` 
 
 You will be prompted to answer a series of questions to create your project:
 
-```bash
+``` shell
   ______       _                
  |  ____|     (_)               
  | |__   _ __  _ _ __ _   _ ___ 
@@ -100,7 +100,7 @@ Details of the created project structure are [below](#generated-project-structur
 
 Or using non-interactive mode:
 
-```bash
+``` shell
 epirus new -n <project name> -p <package name> [-o <path>]
 ```
 
@@ -116,13 +116,13 @@ Similarly to `epirus new`, `epirus import` will create a new  project but with u
 
 Again, to generate a new project interactively:
 
-```bash
+``` shell
 epirus import
 ``` 
 
 You will be prompted to answer a series of questions to create your project:
 
-```bash
+``` shell
   ______       _                
  |  ____|     (_)               
  | |__   _ __  _ _ __ _   _ ___ 
@@ -147,13 +147,13 @@ $
 
 This command can also be used non-interactively
 
-```
+``` shell
 epirus import -n <project name> -p <package name> -s <path to solidity sources> [-o <path>] -t
 ```
 
 or 
 
-```
+``` shell
 epirus import 
 ```
 
@@ -164,13 +164,13 @@ The `-t` option is false by default. By passing `-t` unit tests will be generate
 
 When creating a new project or importing solidity contracts, by using:
 
-```
+``` shell
 epirus generate-tests
 ```
 
 You will be prompted to answer a series of questions to generate your tests:
 
-```
+``` shell
   ______       _                
  |  ____|     (_)               
  | |__   _ __  _ _ __ _   _ ___ 
@@ -187,7 +187,9 @@ Unit tests were generated successfully at location: /home/user/Documents/dev/uni
 ```
 The command can also be used non-interactively
 
-```epirus generate-tests -i <Solidity java wrappers> -o <output path>```
+``` shell
+epirus generate-tests -i <Solidity java wrappers> -o <output path>
+```
 
 When adding the path to your Java wrappers make sure you specify the path up to the package root e.g:
 If a class with name HelloWorld and package name `io.epirus` is located under `/home/user/Documents/dev/io/epirus/HelloWorld.java`, the correct way to point to that class is `/home/user/Documents/dev`
@@ -243,22 +245,21 @@ Epirus projects use the Gradle build tool under the covers. Gradle is a build DS
 
 To build the project run:
 
-```bash
+``` shell
 ./gradlew build
 ```
 
 To update the just the smart contract bindings following changes to the Solidity code run:
 
-```bash
+``` shell
 ./gradlew generateContractWrappers
 ```
 
 To delete all project build artifacts, creating a clean environment, run:
 
-```bash
+``` shell
 ./gradlew clean
 ```
-
 
 
 Wallet tools
@@ -266,19 +267,19 @@ Wallet tools
 
 To generate a new Ethereum wallet:
 
-``` bash
+``` shell
 $ epirus wallet create
 ```
 
 To update the password for an existing wallet:
 
-``` bash
+``` shell
 $ epirus wallet update <walletfile>
 ```
 
 To send Ether to another address:
 
-``` bash
+``` shell
 $ epirus wallet send <walletfile> 0x<address>|<ensName>
 ```
 
@@ -286,12 +287,14 @@ When sending Ether to another address you will be asked a series of questions be
 
 The following example demonstrates using Epirus to send Ether to another wallet.
 
-For input:
-```
+With the following input:
+``` shell
 epirus wallet send <walletfile> 0x<address>|<ensName>
 ```
 
-``` console
+Epirus proceeds as follows:
+
+``` shell
   ______       _                
  |  ____|     (_)               
  | |__   _ __  _ _ __ _   _ ___ 
@@ -317,12 +320,13 @@ Mined block number: 1849039
 
 To fund a wallet on the Rinkeby or Ropsten testnet using the faucets provided by Web3 Labs, use the following command:
 
-``` console
+``` shell
 epirus wallet fund <network name> 0x<address> 
 ```
 
 For instance, to fund the address `0xc6c7224128b9714b47009be351d0ea5bcb16da29`, on Rinkeby:
-``` console
+
+``` shell
 epirus wallet fund rinkeby 0xc6c7224128b9714b47009be351d0ea5bcb16da29
 ```
 
@@ -336,12 +340,12 @@ Smart contracts written in Solidity often include logic bugs and other issues wh
 
 To audit a smart contract (in this instance, Campaign.sol):
 
-``` bash
+``` shell
 $ epirus audit Campaign.sol
 ```
 
 An example of the output from this command is as follows:
-```bash
+``` shell
   ______       _                
  |  ____|     (_)               
  | |__   _ __  _ _ __ _   _ ___ 
@@ -377,7 +381,7 @@ Account Creation
 -----------------------------------------
 
 In order to create an Epirus account to make full use of the platform features, the command `epirus account create` can be used. After account creation & email confirmation, all free platform features will be enabled. The output from the account creation process should be as follows:
-```
+``` shell
   ______       _                
  |  ____|     (_)               
  | |__   _ __  _ _ __ _   _ ___ 
