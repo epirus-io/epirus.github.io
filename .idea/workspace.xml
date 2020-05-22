@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="modificationStamps">
+      <map>
+        <entry key="$PROJECT_DIR$/../../java/othera/gateway" value="1476668611000" />
+        <entry key="$PROJECT_DIR$/../../java/web3j" value="2956083394000" />
+        <entry key="$PROJECT_DIR$/../../java/web3j-android" value="2956674168000" />
+        <entry key="$PROJECT_DIR$/../../java/web3j-examples/spring-boot" value="2974959241000" />
+        <entry key="$PROJECT_DIR$/../../kotlin/corda" value="2961092809000" />
+      </map>
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$/../../Web3App" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../Web3jApp/Web3jApp" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../java/Web3App" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../java/microsoft/Comstock" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../java/microsoft/crypletfx" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../java/microsoft/crypletfx/java" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="cwvwDqnB" />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="171" />
+    <option name="y" value="149" />
+    <option name="width" value="1375" />
+    <option name="height" value="995" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.gopath.indexing.explicitly.defined" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="/usr/local/bin/node" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="options.lastSelected" value="com.jetbrains.python.documentation.PythonDocumentationConfigurable" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunManager">
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SbtLocalSettings">
+    <option name="modificationStamps">
+      <map>
+        <entry key="$PROJECT_DIR$/../../scala/Principles of Reactive Programming/Week 4/suggestions" value="1430777854000" />
+        <entry key="$PROJECT_DIR$/../../scala/Principles of Reactive Programming/Week 5/actorbintree" value="1431235876000" />
+        <entry key="$PROJECT_DIR$/../../scala/Principles of Reactive Programming/Week 5/linkchecker" value="1431461590000" />
+        <entry key="$PROJECT_DIR$/../../scala/Principles of Reactive Programming/Week 6/kvstore" value="1431874506000" />
+        <entry key="$PROJECT_DIR$/../../scala/Principles of Reactive Programming/example" value="1428910942000" />
+        <entry key="$PROJECT_DIR$/../../scala/Scala for Machine Learning/ScalaMl-master" value="1419778718000" />
+        <entry key="$PROJECT_DIR$/../../scala/lambdajam-relative-monads/scala" value="1432181228000" />
+        <entry key="$PROJECT_DIR$/../../scala/learning-spark" value="1461027780000" />
+      </map>
+    </option>
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.44046468" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

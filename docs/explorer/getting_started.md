@@ -14,7 +14,7 @@ This documentation reflects the features of our AWS, Azure and Enterprise versio
 The [Azure Marketplace offer](https://web3labs.com/azure-offer) is the simplest full version of Epirus 
 to get up and running with. It requires an active Azure cloud subscription
 
-![Azure Marketplace offer](img/azure_offer.png)
+![Azure Marketplace offer](./img/azure_offer.png)
 
 You will need to provide details of your managed ledger (or Ethereum/Quorum/Hyperledger Besu) node. In your Azure portal, navigate to the Azure Blockchain Service instance you wish to use. From here click `Transaction nodes -> <your-transaction-node> -> Connection strings`
 
@@ -26,7 +26,7 @@ To view the actual URL, navigate to the Overview page for the resource group you
 
 Please allow a few minutes for the service to fully initialise and display data when initially run. You will see the below loading screen while it is initially loading.
 
-![loading screen](img/loading.png)
+![loading screen](./img/loading.png)
 
 Please note, it can take a while (multiple hours) to display token and contract details as it needs to process the entire blockchain history.
 
@@ -35,7 +35,7 @@ Please note, it can take a while (multiple hours) to display token and contract 
 The [AWS Marketplace offer](https://web3labs.com/aws-offer) provides a pre-configured VM with 
 Epirus already installed. It requires an active AWS subscription.
 
-![AWS Marketplace offer](img/aws_offer.png)
+![AWS Marketplace offer](./img/aws_offer.png)
 
 You will need to provide details of the RPC endpoint for your Hyperledger Besu/Quorum/Ethereum node. 
 
@@ -73,7 +73,7 @@ You will be able to access the Explorer UI via `http://vm-ip-address-or-hostname
 
 Please allow a few minutes for the service to fully initialise and display data when initially run. It will automatically start up on subsequent reboots.
 
-![loading screen](img/loading.png)
+![loading screen](./img/loading.png)
 
 Please note, it can take a while (multiple hours) to display token and contract details as it needs to process the entire blockchain history.
 

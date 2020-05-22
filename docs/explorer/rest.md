@@ -7,7 +7,7 @@ To access the Swagger docs for the API, which allow you to easily query the API,
 
 Swagger also makes it straight forwards to test API queries.
 
-![Swagger REST API](img/swagger.png)
+![Swagger REST API](./img/swagger.png)
 
 This API makes available all data you see in the user interface. This, combined with the 
 filtering functionality and the contract registry, allows you to easily create custom reports 

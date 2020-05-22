@@ -27,7 +27,7 @@
     
     If you hit this issue, you will see the following error:
     
-    ![Deployment failed](img/issue-deployment-failed/deployment_failed.png)
+    ![Deployment failed](./img/issue-deployment-failed/deployment_failed.png)
     
     The specific message is:
 
@@ -37,11 +37,11 @@
 
     To resolve the error, you will need to logon to the host that was created. To do this, click on the virtual machine name:
     
-    ![Deployment hostname](img/issue-deployment-failed/deployment_hostname.png)
+    ![Deployment hostname](./img/issue-deployment-failed/deployment_hostname.png)
     
     Then copy the DNS name of the host:
     
-    ![Host DNS name](img/issue-deployment-failed/dns_name.png)
+    ![Host DNS name](./img/issue-deployment-failed/dns_name.png)
     
     Logon to the host by running:
 
@@ -57,14 +57,14 @@
 
     Epirus should start, and if you head to the hostname in your browser, you should see the Epirus loading screen:
     
-    ![Loading screen](img/loading.png)
+    ![Loading screen](./img/loading.png)
     
     After a few minutes you should see Epirus has started successfully:
     
-    ![Dashboard](img/dashboard.png)
+    ![Dashboard](./img/dashboard.png)
 
 ??? warning "Unable to create instance on Azure - the template deployment is not valid"
-    ![Azure creation error](img/azure_create_error.png)
+    ![Azure creation error](./img/azure_create_error.png)
     
     ```
     The template deployment 'blk-technologies.azure-blockchain-explorer-templa-20190701100047' is not valid according to the validation procedure. The tracking id is '494a6331-33c6-4c13-8871-359117dfa70b'. See inner errors for details. Please see https://aka.ms/arm-deploy for usage details.
@@ -72,7 +72,7 @@
 
 	Check that the instance name that you have used is globally unique. Using a common name such as `test` in the below example will fail:
 
-	![Epirus instance name](img/epirus_instance_name.png)
+	![Epirus instance name](./img/epirus_instance_name.png)
 
 	If this does not resolve your issue, please [email us](mailto:hi@web3labs.com) with details of the parameters you're trying to use.
 
