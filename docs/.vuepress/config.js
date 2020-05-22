@@ -74,84 +74,84 @@ module.exports = {
     editLinkText: 'Edit this page on GitHub',
     keywords:
         'Ethereum, Quorum, Hyperledger Besu, blockchain explorer, enterprise blockchain, enterpise ethereum, DApps, Java, Kotlin, Epirus, Android, Web3 Labs',
-    algolia: {
-      apiKey: '3ad7674f34d85f0d46f179bf95f49145',
-      indexName: 'epirus_docs'
-    },
-    plugins: [
-      ['@vuepress/plugin-back-to-top', true],
-      [
-        '@vuepress/active-header-links',
-        {
-          sidebarLinkSelector: '.sidebar-link',
-          headerAnchorSelector: '.header-anchor',
-          headerTopOffset: 120
-        }
-      ],
-      '@vuepress/plugin-last-updated',
-      [
-        'vuepress-plugin-clean-urls',
-        {
-          normalSuffix: '/',
-          indexSuffix: '/',
-          notFoundPath: '/404/'
-        }
-      ],
-      [
-        '@vuepress/google-analytics',
-        {
-          ga: 'UA-XXXXX'
-        }
-      ],
-      [
-        'vuepress-plugin-seo',
-        {
-          siteTitle: ($page, $site) => $site.title,
-          title: $page => $page.title,
-          description: $page => $page.frontmatter.description,
-          author: ($page, $site) =>
-              $page.frontmatter.author || $site.themeConfig.author,
-          tags: $page => $page.frontmatter.tags,
-          twitterCard: _ => 'summary_large_image',
-          type: $page =>
-              ['articles', 'posts', 'blog'].some(folder =>
-                  $page.regularPath.startsWith('/' + folder)
-              )
-                  ? 'article'
-                  : 'website',
-          url: ($page, $site, path) => ($site.themeConfig.domain || '') + path,
-          image: ($page, $site) =>
-              $page.frontmatter.image
-                  ? ($site.themeConfig.domain || '') + $page.frontmatter.image
-                  : ($site.themeConfig.domain || '') + $site.themeConfig.defaultImage,
-          publishedAt: $page =>
-              $page.frontmatter.date && new Date($page.frontmatter.date),
-          modifiedAt: $page => $page.lastUpdated && new Date($page.lastUpdated),
-          customMeta: (add, context) => {
-            const { $site, image } = context
-            add(
-                'twitter:site',
-                ($site.themeConfig.author && $site.themeConfig.author.twitter) || ''
+    // algolia: {
+    //   apiKey: '3ad7674f34d85f0d46f179bf95f49145',
+    //   indexName: 'epirus_docs'
+    // },
+  },
+  plugins: [
+    ['@vuepress/plugin-back-to-top', true],
+    [
+      '@vuepress/active-header-links',
+      {
+        sidebarLinkSelector: '.sidebar-link',
+        headerAnchorSelector: '.header-anchor',
+        headerTopOffset: 120
+      }
+    ],
+    '@vuepress/plugin-last-updated',
+    [
+      'vuepress-plugin-clean-urls',
+      {
+        normalSuffix: '/',
+        indexSuffix: '/',
+        notFoundPath: '/404/'
+      }
+    ],
+    [
+      '@vuepress/google-analytics',
+      {
+        ga: 'UA-XXXXX'
+      }
+    ],
+    [
+      'vuepress-plugin-seo',
+      {
+        siteTitle: ($page, $site) => $site.title,
+        title: $page => $page.title,
+        description: $page => $page.frontmatter.description,
+        author: ($page, $site) =>
+            $page.frontmatter.author || $site.themeConfig.author,
+        tags: $page => $page.frontmatter.tags,
+        twitterCard: _ => 'summary_large_image',
+        type: $page =>
+            ['articles', 'posts', 'blog'].some(folder =>
+                $page.regularPath.startsWith('/' + folder)
             )
-            add('image', image)
-            add('keywords', $site.themeConfig.keywords)
-          }
+                ? 'article'
+                : 'website',
+        url: ($page, $site, path) => ($site.themeConfig.domain || '') + path,
+        image: ($page, $site) =>
+            $page.frontmatter.image
+                ? ($site.themeConfig.domain || '') + $page.frontmatter.image
+                : ($site.themeConfig.domain || '') + $site.themeConfig.defaultImage,
+        publishedAt: $page =>
+            $page.frontmatter.date && new Date($page.frontmatter.date),
+        modifiedAt: $page => $page.lastUpdated && new Date($page.lastUpdated),
+        customMeta: (add, context) => {
+          const { $site, image } = context
+          add(
+              'twitter:site',
+              ($site.themeConfig.author && $site.themeConfig.author.twitter) || ''
+          )
+          add('image', image)
+          add('keywords', $site.themeConfig.keywords)
         }
-      ],
-      [
-        'vuepress-plugin-canonical',
-        {
-          // add <link rel="canonical" header (https://tools.ietf.org/html/rfc6596)
-          // to deduplicate SEO across all copies loaded from various public gateways
-          baseURL: 'https://epirus.filecoin.io/'
-        }
-      ],
-      [
-        'vuepress-plugin-code-copy',
-        {
-          staticIcon: true
-        }
-      ]
+      }
+    ],
+    [
+      'vuepress-plugin-canonical',
+      {
+        // add <link rel="canonical" header (https://tools.ietf.org/html/rfc6596)
+        // to deduplicate SEO across all copies loaded from various public gateways
+        baseURL: 'https://docs.epirus.io/'
+      }
+    ],
+    [
+      'vuepress-plugin-code-copy',
+      {
+        color: '#918fff'
+      }
     ]
-  }
+  ]
 }

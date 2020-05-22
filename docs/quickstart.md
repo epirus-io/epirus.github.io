@@ -31,7 +31,7 @@ Alternatively, you can head [here](https://github.com/epirus-io/epirus-cli/relea
 If you signed up for Epirus via the [website](https://www.web3labs.com/epirus-platform) you should already have an account, if not you can create one via the CLI.
 
 <video width="100%" controls>
-   <source src="img/epirus-quickstart.webm" type="video/mp4">
+   <source src="./img/epirus-quickstart.webm" type="video/mp4">
 </video>
 
 In order to create a new account, use the command `epirus account create`, and enter your email address when prompted. You will be sent an activation email. 
