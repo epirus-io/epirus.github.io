@@ -80,7 +80,9 @@ module.exports = {
     // },
   },
   plugins: [
-    ['@vuepress/plugin-back-to-top', true],
+    ['@vuepress/plugin-back-to-top'],
+    ['code-switcher'],
+    ['reading-progress'],
     [
       '@vuepress/active-header-links',
       {

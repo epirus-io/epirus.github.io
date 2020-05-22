@@ -12,17 +12,25 @@ Read on to super-charge your blockchain journey!
 
 ## Installation
 
-To install the Epirus CLI on your local Mac or Linux machine, run the following command in your terminal:
+To install the Epirus CLI run the following command in your terminal:
+
+<CodeSwitcher :languages="{shell:'Mac/Linux',powershell:'Windows'}">
+<template v-slot:shell>
 
 ``` shell
 curl -L get.epirus.io | sh && source ~/.epirus/source.sh
 ```
 
-For Windows, run the following in PowerShell:
+</template>
+<template v-slot:powershell>
 
 ``` powershell
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/epirus-io/epirus-installer/master/installer.ps1'))
 ```
+
+</template>
+</CodeSwitcher>
+
 
 Alternatively, you can head [here](https://github.com/epirus-io/epirus-cli/releases/latest) to download the latest release.
 
