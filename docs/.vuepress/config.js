@@ -27,7 +27,7 @@ module.exports = {
         title: 'Explorer',
         path: '/explorer/',
         children: [
-          '',
+          '/explorer/',
           '/explorer/getting_started',
           '/explorer/features',
           '/explorer/metadata',
