@@ -1,4 +1,4 @@
-# Overview
+# Introduction
 
 The Epirus blockchain explorer and smart contract registry is the go-to platform for both
 business and technical users for working with blockchain networks.

@@ -1,4 +1,4 @@
-# Overview
+# Introduction
 
 The Epirus SDK is the developer toolkit for Epirus.
 

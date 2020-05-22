@@ -43,7 +43,7 @@ Copy the RPC endpoint for your node, such as `http://<your-service-url>:8545` (t
 
 Once the virtual machine has been deployed, launch a terminal on the machine:
 
-```console
+``` shell
 ssh -i <keyfile> ubuntu@<machine name>
 ```
 
@@ -51,7 +51,7 @@ Then copy the HTTPS access keys with node URL, such as `http://<your-service-url
 
 Once the virtual machine has been deployed, launch a terminal on the machine. Then run the following command to configure the node (**please note AWS requires authentication credentials to be configured**):
 
-```console
+``` shell
 $ sudo epirus setup
 Configuring Epirus instance
 
@@ -79,7 +79,7 @@ Please note, it can take a while (multiple hours) to display token and contract 
 
 If you need to modify or create additional access credentials, you can use the following command:
 
-```console
+``` shell
 sudo epirus passwd <new or existing username>
 ```
 
@@ -107,13 +107,13 @@ To get started with the free version, you'll need [Git](https://git-scm.com/) in
 
 Run the following command to download Epirus:
 
-```bash
+``` shell
 git clone https://github.com/epirus-io/epirus-free.git
 ```
 
 Navigate to the `epirus-free` directory directory and run the instance with:
 
-```bash
+``` shell
 cd epirus-free
 NODE_ENDPOINT=http://<node_endpoint> docker-compose up
 ```
@@ -128,13 +128,13 @@ You will be able to access the Explorer UI via:
 
 To stop the containers use:
 
-```bash
+``` shell
 docker-compose down
 ```
 
 To connect to new network you should remove the volumes associated with the old network
 
-```bash
+``` shell
 docker-compose down -v
 ```
 
