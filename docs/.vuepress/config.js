@@ -74,10 +74,10 @@ module.exports = {
     editLinkText: 'Edit this page on GitHub',
     keywords:
         'Ethereum, Quorum, Hyperledger Besu, blockchain explorer, enterprise blockchain, enterpise ethereum, DApps, Java, Kotlin, Epirus, Android, Web3 Labs',
-    // algolia: {
-    //   apiKey: '3ad7674f34d85f0d46f179bf95f49145',
-    //   indexName: 'epirus_docs'
-    // },
+    algolia: {
+      apiKey: '0fff5b4ca8fbb5aa6db3094cc2f69573',
+      indexName: 'epirus'
+    },
   },
   plugins: [
     ['@vuepress/plugin-back-to-top'],
