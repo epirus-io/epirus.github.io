@@ -1,6 +1,6 @@
 # QuickStart
 
-The Epirus Platform consists of a suite of tools and services to enable rapid and efficent development, deployment and monitoring of blockchain applications.
+The Epirus Platform consists of a suite of tools and services to enable rapid and efficient development, deployment and monitoring of blockchain applications.
 
 All it takes is three commands to go from zero to having your first live blockchain application:
 

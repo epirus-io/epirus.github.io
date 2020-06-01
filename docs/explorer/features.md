@@ -1,12 +1,12 @@
 # Features
 
-Epirus provides an intuitivie user experieince, driven by the menu on the left-hand side of the screen. Clicking on the relevent menu item will take you to the associated page.
+Epirus provides an intuitive user experience, driven by the menu on the left-hand side of the screen. Clicking on the relevant menu item will take you to the associated page.
 
 ## Dashboard
 
 The Epirus dashboard provides a summary of key metrics of the blockchain contracts, including:
 
-- Total transctions, token contracts and peers
+- Total transactions, token contracts and peers
 - Graphical transaction count broken down by transaction type (contract creation, contract transaction, currency transfer)
 - Most active contracts
 - Fungible (ERC20) versus non-fungible token contracts (ERC721)
@@ -44,7 +44,7 @@ The `Name` column provides the contract name if the contract is registered in th
 
 When you click on a contract, you are taken into the contract details page which has various information about the contract.
 
-Here you can see details of all transactions associated with the contract and events emmitted by these transactions. If the contract is registered in the registry, events and their parameter names and values will be decoded.
+Here you can see details of all transactions associated with the contract and events emitted by these transactions. If the contract is registered in the registry, events and their parameter names and values will be decoded.
 
 ![Contract details view](./img/contract_details.png)
 
@@ -58,7 +58,7 @@ The Transactions view provides the details of individual transactions, including
 
 ![Transaction details](./img/transaction_details.png)
 
-When you vieiw a transaction details you will be able to view lower-level details, such as the input byte code, which is available under the `Additional Details` menu.
+When you view a transaction details you will be able to view lower-level details, such as the input byte code, which is available under the `Additional Details` menu.
 
 ![Input bytecode](./img/input_bytecode.png)
 
@@ -70,7 +70,7 @@ The blocks view provides details of all blocks being generated on the network. A
 
 ![Block details](./img/block_details.png)
 
-Here you can see detailsi such as the block difficulty and gas consumed.
+Here you can see details such as the block difficulty and gas consumed.
 
 ![Block attributes](./img/block_attributes.png)
 
@@ -108,6 +108,6 @@ displaying contract creation transactions or fungible tokens in the Tokens view.
 
 ## Peers
 
-The peers view provides insights into the peers that your node is connected to. This is usefull if you want to check that you are successfully to a wider network.
+The peers view provides insights into the peers that your node is connected to. This is useful if you want to check that you are successfully to a wider network.
 
 ![Peers dasboard](./img/peers.png)

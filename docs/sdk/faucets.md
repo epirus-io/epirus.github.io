@@ -9,7 +9,7 @@ automatically be funded by Epirus with enough testnet Ether to deploy your contr
 In order to fund an arbitrary account, you can use the `epirus wallet fund` command in the 
 CLI application. 
 
-For instance, in order to fund an address on the Rinkeby test network, the follwing command would be used:
+For instance, in order to fund an address on the Rinkeby test network, the following command would be used:
 
 ```
 epirus wallet fund rinkeby 0xceeeefe21b2f2ea5df62ed2efde1e3f1e5540f96

@@ -5,8 +5,8 @@ The Epirus Platform is the complete solution for building and operating blockcha
 It consists of three core components:
 
 - The [Epirus SDK](/sdk) for creating and deploying Ethereum blockchain applications.
-- The [Epirus Portal](/portal) for managing connecivity to Ethereum blockchain networks.
-- The [Epirus Explorer](/explorer) for viewing and monitoring your applicaitons on the blockchain and the blockchain itself.
+- The [Epirus Portal](/portal) for managing connectivity to Ethereum blockchain networks.
+- The [Epirus Explorer](/explorer) for viewing and monitoring your applications on the blockchain and the blockchain itself.
 
 ![Epirus Platform](./img/epirus_platform.png)
 

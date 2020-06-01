@@ -14,7 +14,7 @@ Navigation is performed via the menu at the bottom of the screen.
 
 ## Contracts
 
-As with the desktop version youur point of entry is the contracts view.
+As with the desktop version your point of entry is the contracts view.
 
 ![Contract mobile](./img/contracts_mobile.png)
 
