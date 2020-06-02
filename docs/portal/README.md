@@ -22,3 +22,5 @@ you work with.
 
 In order to use the Epirus Portal you must have an account. You can access the portal 
 [here](https://app.epirus.io/oidc/authenticate/). 
+
+The [Features](features.md) section provides a more in-depth overview of the Epirus portal.
