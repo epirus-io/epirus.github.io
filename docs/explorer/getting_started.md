@@ -120,7 +120,7 @@ NODE_ENDPOINT=http://<node_endpoint> docker-compose up
 
 Note that if setting `NODE_ENDPOINT` to a local Ethereum instance, you may need to use the IP address associated with the Docker bridged interface, often denoted by `docker0`.
 
-Append the `-d` argument to run the containers in the backgroud
+Append the `-d` argument to run the containers in the background
 
 You will be able to access the Explorer UI via:
 

@@ -16,7 +16,7 @@ Please head to the [Getting Started](getting_started.md#azure) section for instr
     
 Please head to our [jobs portal](https://web3labs.workable.com/) for current listings.
 
-How can I manage users credentials in Epirus on AWS?
+## How can I manage users credentials in Epirus on AWS?
 
 On the host, you can use the `passwd` command to add or update user credentials.
 
