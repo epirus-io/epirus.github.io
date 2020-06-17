@@ -23,7 +23,11 @@ reporting of your data.
 
 ![Epirus screenshot](./img/contract_details.png)
 
-It additionally supports both public and private permissioned blockchains such as the 
-Ethereum networks, [Hyperledger Besu](https://www.hyperledger.org/projects/besu) and [Quorum](https://github.com/jpmorganchase/quorum) by J.P. Morgan.
-
 The [Features](features.md) section provides a more in-depth overview of Epirus.
+
+## Networks
+
+The Epirus blockchain explorer supports both public and private permissioned blockchains such as the Ethereum networks, 
+[Hyperledger Besu](https://www.hyperledger.org/projects/besu) and [Quorum](https://github.com/jpmorganchase/quorum) by J.P. Morgan. 
+
+There are live instances running against the [Rinkeby](https://rinkeby.epirus.io/) and [Ropsten](https://ropsten.epirus.io/) testnets for users with an [Epirus Portal](https://docs.epirus.io/portal) account.
