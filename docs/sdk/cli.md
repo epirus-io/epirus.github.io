@@ -13,8 +13,7 @@ An Epirus binary is distributed, providing an interactive command line (CLI). It
 - Account creation & management
 - Wallet funding
 
-Installation
-------------
+## Installation
 
 ### Script
 
@@ -41,8 +40,8 @@ Build timestamp: 2020-03-31 11:39:28.526 UTC
 ```
 
 
-Epirus new & import
------------------------------------------
+## Epirus new & import
+
 The `epirus new` and `epirus import` commands provide a convenient way to create a new Kotlin/Java project using Epirus's Command Line Tools.
 
 These commands provide the following functionality:
@@ -54,15 +53,22 @@ These commands provide the following functionality:
 - Generate Java smart contract wrappers for all provided Solidity files.
 - Add the required Epirus dependencies, to deploy and interact with the contracts.
 - Generate unit tests for the Java smart contract wrappers.
-- Generate a password protected wallet with each project.
+
 
 ### epirus new / epirus new --java
 
 To generate a new project interactively:
 
 ``` shell
-epirus new 
+epirus new [--java|--kotlin]
 ``` 
+
+Where supported `new` command arguments are as follows:
+
+- `--java`
+  Creation of a new Java project
+- `--kotlin`
+  Creation of a new Kotlin project
 
 You will be prompted to answer a series of questions to create your project:
 
@@ -84,40 +90,34 @@ Please enter the destination of your project [/home/user/project]:
 [ | ] Creating Web3App
 Project Created Successfully
 
-Project information
-Wallet Address      0xf042183586d45c3580905ce93c956e4eb1303a1e
-
 Commands
-./gradlew run       Runs your application
-./gradlew test      Test your application
-epirus deploy       Deploys your application
-$
+./gradlew test               Test your application
+epirus run <network>         Runs your application
+epirus docker run <network>  Runs a dockerized version of your application
 ```
 
 Details of the created project structure are [below](#generated-project-structure).
 
 
-
 Or using non-interactive mode:
 
 ``` shell
-epirus new -n <project name> -p <package name> [-o <path>]
+epirus new [--java|--kotlin] -n <project name> -p <package name> [-o <path>]
 ```
 
 The `-o` option can be omitted if you want to generate the project in the current directory.
 
-The `project name ` and `package name` values must comply with the Java standard. The project name is also used as the class name.
+The `project name ` and `package name` values must comply with the JVM standards. The project name is also used as the maini class name.
 
 
+### Epirus import
 
-### Epirus import / Epirus import --java
-
-Similarly to `epirus new`, `epirus import` will create a new  project but with user defined smart contracts. By default a Kotlin project will be generated if the `--java` option is not appended.
+Similarly to `epirus new`, `epirus import` will create a new  project but with user defined smart contracts. By default a Java project will be generated if an option is not provided.
 
 Again, to generate a new project interactively:
 
 ``` shell
-epirus import
+epirus import [--java|--kotlin]
 ``` 
 
 You will be prompted to answer a series of questions to create your project:
@@ -134,7 +134,7 @@ You will be prompted to answer a series of questions to create your project:
 Please enter the project name [Web3App]:
 MyImportedProject
 Please enter the package name for your project [io.epirus]:
-com.web3labs.eth
+
 Please enter the path to your solidity file/folder [Required Field]: 
 /path/to/solidity
 Please enter the destination of your project [/home/user/Documents/myfolder]: 
@@ -157,10 +157,11 @@ or
 epirus import 
 ```
 
-The `-s` option will work with a single solidity file or a folder containing solidity files.
+The `-s` option will work with a single Solidity file or a folder containing solidity files.
 The `-t` option is false by default. By passing `-t` unit tests will be generated for the java wrappers.
 
-### Epirus generate-tests / Epirus generate-tests --java
+### Unit test generation
+
 
 When creating a new project or importing solidity contracts, by using:
 
@@ -180,30 +181,23 @@ You will be prompted to answer a series of questions to generate your tests:
         | |                     
         |_|                     
 Please enter the path of the generated contract wrappers.
-/home/user/Documents/dev/java/
+<source contract wrappers>
 Where would you like to save your tests.
-/home/user/Documents/dev/unit-tests/
-Unit tests were generated successfully at location: /home/user/Documents/dev/unit-tests/
+<path to tests>
+Unit tests were generated successfully at location: .
 ```
 The command can also be used non-interactively
 
 ``` shell
-epirus generate-tests -i <Solidity java wrappers> -o <output path>
+epirus generate-tests -i <Solidity Java wrappers> -o <output path>
 ```
 
 When adding the path to your Java wrappers make sure you specify the path up to the package root e.g:
-If a class with name HelloWorld and package name `io.epirus` is located under `/home/user/Documents/dev/io/epirus/HelloWorld.java`, the correct way to point to that class is `/home/user/Documents/dev`
+If a class with name HelloWorld and package name `io.epirus` is located under `/home/user/code/myproject/io/epirus/HelloWorld.java`, the correct way to point to that class is `/home/user/code/myproject/`
 
-Generated project structure
----------------------------
+## Generated project structure
 
 Your application code and tests will be located in the following project directories:
-
-For Kotlin:
-
-- `./src/main/kotlin` - Generated Kotlin application code stub
-- `./src/test/kotlin` - Generated Kotlin test code stub
-- `./src/main/solidity` - Solidity source code
 
 For Java:
 
@@ -211,7 +205,11 @@ For Java:
 - `./src/test/java` - Generated Java test code stub
 - `./src/main/solidity` - Solidity source code
 
+For Kotlin:
 
+- `./src/main/kotlin` - Generated Kotlin application code stub
+- `./src/test/kotlin` - Generated Kotlin test code stub
+- `./src/main/solidity` - Solidity source code
 
 If you need to edit the build file, it is located in the project root directory:
 
@@ -238,10 +236,9 @@ The compiled code for the generated smart contracts bindings is available at the
 - `./build/classes/java/main/<your-package>/generated/contracts/`
 
 
-Build commands
---------------
+## Build commands
 
-Epirus projects use the Gradle build tool under the covers. Gradle is a build DSL  for JVM projects used widely in Java, Kotlin and Android projects. You shouldn't need to be too concerned with the semantics of Gradle beyond the following build commands:
+Epirus projects use the Gradle build tool under the covers. Gradle is a build DSL for JVM projects used widely in Java, Kotlin and Android projects. You shouldn't need to be too concerned with the semantics of Gradle beyond the following build commands:
 
 To build the project run:
 
@@ -262,8 +259,7 @@ To delete all project build artifacts, creating a clean environment, run:
 ```
 
 
-Wallet tools
-------------
+## Wallet tools
 
 To generate a new Ethereum wallet:
 
@@ -333,8 +329,7 @@ epirus wallet fund rinkeby 0xc6c7224128b9714b47009be351d0ea5bcb16da29
 Please note that this functionality requires a proof-of-work based captcha, and is rate-limited. [Rinkeby](https://rinkeby.faucet.epirus.io/) and [Ropsten](https://ropsten.faucet.epirus.io/) Web3 Labs faucets can also be accessed from your browser.
 
 
-Auditing Tools
-------------
+## Auditing Tools
 
 Smart contracts written in Solidity often include logic bugs and other issues which might compromise their security. These are not always obvious to programmers. Issues can include [integer precision problems](https://github.com/smartdec/classification#arithmetic), [re-entrancy attacks](https://github.com/smartdec/classification#contract-interaction), and many other flaws. As Ethereum smart contracts are immutable once they have been deployed, it is important that they are bug-free at this point. Epirus is able to audit smart contracts for certain common issues and vulnerabilities using static code analysis. 
 
@@ -371,27 +366,15 @@ The output is in the form of a list of issues/errors detected by the static anal
 This functionality is provided by [SmartCheck](https://github.com/smartdec/smartcheck).
 
 
-Solidity smart contract wrapper generator
------------------------------------------
+## Solidity smart contract wrapper generator
 
 Please refer to [solidity smart contract wrappers](https://docs.web3j.io/smart_contracts/#solidity-smart-contract-wrappers).
 
 
-Account Creation
------------------------------------------
+## Account Creation
 
-In order to create an Epirus account to make full use of the platform features, the command `epirus account create` can be used. After account creation & email confirmation, all free platform features will be enabled. The output from the account creation process should be as follows:
-``` shell
-  ______       _                
- |  ____|     (_)               
- | |__   _ __  _ _ __ _   _ ___ 
- |  __| | '_ \| | '__| | | / __|
- | |____| |_) | | |  | |_| \__ \
- |______| .__/|_|_|   \__,_|___/
-        | |                     
-        |_|                     
-Please enter your email address: 
-youremail@yourdomain.com
-Account created successfully. You can now use Epirus Cloud. Please confirm your e-mail within 24 hours to continue using all features without interruption.
-```
+If you wish to make use of the more powerful features of Epirus such as deployment, you will need to sign up for a free account via the [Epirus website](https://www.web3labs.com/epirus).
 
+Once your email address has been confirmed, you will have an account on the Epirus platform and will be able to make use of all features.
+
+You will need to be logged in to deploy Epirus applications. Use `epirus login` and follow the prompt to do this.

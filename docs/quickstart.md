@@ -6,7 +6,7 @@ All it takes is three commands to go from zero to having your first live blockch
 
 1. Install the Epirus SDK
 1. Create your first applicaiton
-1. Deploy your application
+1. Run your application against a live public network
 
 Read on to super-charge your blockchain journey!
 
@@ -34,20 +34,6 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 
 Alternatively, you can head [here](https://github.com/epirus-io/epirus-cli/releases/latest) to download the latest release.
 
-## Account Creation
-
-If you signed up for Epirus via the [website](https://www.web3labs.com/epirus-platform) you should already have an account, if not you can create one via the CLI.
-
-<video width="100%" controls>
-   <source src="./img/epirus-quickstart.webm" type="video/mp4">
-</video>
-
-In order to create a new account, use the command `epirus account create`, and enter your email address when prompted. You will be sent an activation email. 
-
-Once your email address has been confirmed, you will have an account on the Epirus platform and will be able to make use of all features.
-
-You will need to be logged in to deploy Epirus applications. Use `epirus login` and follow the prompt to do this.
-
 ## Project Creation
 
 After having created a new account, use the command `epirus new` to create a new project. Epirus will use sensible defaults for all the questions asked during the project setup process, so if you hit enter on each question, the output should be similar to the following:
@@ -71,23 +57,32 @@ Please enter the destination of your project [/home/user/Web3App]:
 [ \ ] Creating Web3App
 Project Created Successfully
 
-Project information
-Wallet Address      0xd66aa9b52a33f0318fbe609142db46156c176c04
-
 Commands
-./gradlew run       Runs your application
-./gradlew test      Test your application
-epirus deploy       Deploys your application
+./gradlew test               Test your application
+epirus run <network>         Runs your application
+epirus docker run <network>  Runs a dockerized version of your application
 ```
 
-Epirus has now created and built a full project, which includes a *Hello World* smart contract, and all the necessary code to interact with it, test it, and deploy it. 
+Epirus has now created and built a full project, which includes a *Hello World* smart contract, and all the necessary code to interact with it, test it, and run it. 
+
+## Account Creation
+
+If you wish to make use of the more powerful features of Epirus such as deployment, you will need to sign up for a free account via the [Epirus website](https://www.web3labs.com/epirus).
+
+Once your email address has been confirmed, you will have an account on the Epirus platform and will be able to make use of all features.
+
+You will need to be logged in to deploy Epirus applications. Use `epirus login` and follow the prompt to do this.
 
 ## Deployment
 
-Using the `epirus deploy` command, you will be able to deploy your code to the Rinkeby and Ropsten Ethereum test networks, from the wallet address that Epirus generated for you (this wallet will be automatically funded with testnet Ether by Epirus during the contract deploy process).
+Using the `epirus run` command, you will be able to run your application against the Rinkeby and Ropsten Ethereum test networks.
+
+This application will transact with the network via a local wallet that Epirus generated for you, the wallet will automatically be funded with testnet Ether by Epirus when you deploy and transact with your application contract.
+
+Connectivity to the relevant network is also provided by Epirus.
 
 ``` shell
-$ epirus deploy rinkeby
+$ epirus run rinkeby
   ______       _                
  |  ____|     (_)               
  | |__   _ __  _ _ __ _   _ ___ 
@@ -96,13 +91,13 @@ $ epirus deploy rinkeby
  |______| .__/|_|_|   \__,_|___/
         | |                     
         |_|                     
-Preparing to deploy your Web3App
+Preparing to run your Web3App
 
 Account status      ACTIVE 
 Wallet balance      0.0984925612 ETH
 Uploading metadata  DONE
 
-Deploying your Web3App
+Running your Web3App
 
 Contract address    https://rinkeby.epirus.io/contracts/0xa12dda51eac72ffd6dc4f9ccc6fb6bbdd8b97892
 Wallet address      https://rinkeby.epirus.io/accounts/0x1f17c4af8313f5923a05b1dc6c262bb0b9c90c27
@@ -110,13 +105,90 @@ Wallet address      https://rinkeby.epirus.io/accounts/0x1f17c4af8313f5923a05b1d
 
 Once completed you can use the provided links to examine your live blockchain application and account!
 
+## Containerised deployment
+
+Epirus also provides containerised deployment, packaging up the application into a Docker image. This is achieved via the `epirus docker` command.
+
+### Building a container
+
+To build a new Docker image, use `epirus docker build` in your project directory:
+
+``` shell
+$ epirus docker build
+  ______       _                
+ |  ____|     (_)               
+ | |__   _ __  _ _ __ _   _ ___ 
+ |  __| | '_ \| | '__| | | / __|
+ | |____| |_) | | |  | |_| \__ \
+ |______| .__/|_|_|   \__,_|___/
+        | |                     
+        |_|                     
+Sending build context to Docker daemon  266.5MB
+Step 1/6 : FROM adoptopenjdk/openjdk11
+ ---> 7e3294f3fe18
+Step 2/6 : RUN mkdir /opt/app
+ ---> Using cache
+ ---> 79a88106f9ad
+Step 3/6 : COPY . /opt/app
+ ---> 7daa9a4de203
+Step 4/6 : WORKDIR /opt/app
+ ---> Running in 58275e4950e5
+Removing intermediate container 58275e4950e5
+ ---> a5d173dc6262
+Step 5/6 : RUN curl -L get.epirus.io | sh
+ ---> Running in 6d78bbe9ac9d
+Downloading Epirus ...
+######################################################################## 100.0%##O#- #                                                                       
+Installing Epirus...
+Removing intermediate container 6d78bbe9ac9d
+ ---> f639d7b6d685
+Step 6/6 : ENTRYPOINT ["/root/.epirus/epirus", "deploy", "rinkeby"]
+ ---> Running in e61abc4ed69f
+Removing intermediate container e61abc4ed69f
+ ---> 190fd6db0298
+Successfully built 190fd6db0298
+Successfully tagged web3app:latest
+```
+
+Once built, you can run your container using the `epirus docker run <network>` command.
+
+### Running locally
+
+Use the `-l` (local) parameter to run the container using the default wallet file configured for Epirus (`~/.epirus/.config`):
+
+``` shell
+epirus docker run -l
+```
+
+### Running externally
+
+To run in an external environment, such as a Kubernetes cluster, you will need to ensure the following environment variables are defined:
+
+Then you can run the container as follows:
+
+``` shell
+epirus docker run
+```
+
+## Running without an Epirus account
+
+If you wish to run your Epirus applications without creating an Epirus account, you can use the Gradle, Java or Docker application runners to run them manually. However, you will need to provide environment variables or configuration parameters with details of the following configuration items:
+
+- Ethereum wallet or private key
+- Ethereum node endpoint
+
+Examples will be provided shortly.
+
+
 ## Monitoring
 
 Monitoring your application is achieved via the Epirus Explorer. 
 
-Two URLs are output by the Epirus SDK `deploy` command following a successful deployment. They allow you to view details of the deployed smart contract and your Ethereum wallet account respectively.
+You can login to the [Epirus Portal](https://portal.epirus.io/contracts) to see details of the contracts you have deployed. 
 
-If you head to the contract view, you can dig into details of your smart contract.
+![View contracts in Epirus Portal](./img/portal_contracts.png)
+
+From here you can navigate to the Epirus Explorer for information about the transaction associated with your contracts.
 
 ![View contract in Epirus Explorer](./img/explorer_contract.png)
 
