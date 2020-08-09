@@ -42,7 +42,8 @@ module.exports = {
         title: 'Portal',
         path: '/portal/',
         children: [
-          '/portal/'
+          '/portal/',
+          '/portal/features'
         ]
       },
       {
