@@ -1,9 +1,13 @@
 # CLI
 
-An Epirus binary is distributed, providing an interactive command line (CLI). It allows you to use some of Epirus' key functionality from your terminal, including:
+An Epirus binary is distributed, providing an interactive command line (CLI). It supports a number of key Epirus project features including:
 
-- New project creation
-- Project creation from existing Solidity code
+- New Java or Kotlin project creation using a Hello World smart contract or existing contract(s)
+- The ability to run your project againist a live network without having to manage network connectivity or transaction fees yourself
+- Java binary or Dockerized deployment
+
+Behind the scenes there are some more granular commands that you can also use, includinig:
+
 - Wallet creation
 - Wallet password management
 - Ether transfer from one wallet to another
@@ -14,8 +18,6 @@ An Epirus binary is distributed, providing an interactive command line (CLI). It
 - Wallet funding
 
 ## Installation
-
-### Script
 
 The simplest way to install the Epirus CLI is via the following script:
 
@@ -39,15 +41,16 @@ Version: 0.9.1
 Build timestamp: 2020-03-31 11:39:28.526 UTC
 ```
 
+Alternatively you can download the latest CLI release [here](https://github.com/epirus-io/epirus-cli/releases/latest).
 
-## Epirus new & import
+## Project creation
 
 The `epirus new` and `epirus import` commands provide a convenient way to create a new Kotlin/Java project using Epirus's Command Line Tools.
 
 These commands provide the following functionality:
 
 - Creation of a new Java/Kotlin project.
-- Generation of a simple *Hello World* Solidity contract (named the `HelloWorld`) or import an existing Solidity project from a file or directory.
+- Generation of a simple *Hello World* Solidity contract or import an existing Solidity project from a file or directory.
 - Compilation of the Solidity files.
 - Configure the project to use the Gradle build tool.
 - Generate Java smart contract wrappers for all provided Solidity files.
@@ -55,7 +58,7 @@ These commands provide the following functionality:
 - Generate unit tests for the Java smart contract wrappers.
 
 
-### epirus new / epirus new --java
+### Create a new project
 
 To generate a new project interactively:
 
@@ -110,7 +113,7 @@ The `-o` option can be omitted if you want to generate the project in the curren
 The `project name ` and `package name` values must comply with the JVM standards. The project name is also used as the maini class name.
 
 
-### Epirus import
+### Import an existing project
 
 Similarly to `epirus new`, `epirus import` will create a new  project but with user defined smart contracts. By default a Java project will be generated if an option is not provided.
 
@@ -160,8 +163,29 @@ epirus import
 The `-s` option will work with a single Solidity file or a folder containing solidity files.
 The `-t` option is false by default. By passing `-t` unit tests will be generated for the java wrappers.
 
-### Unit test generation
+## Running your application
 
+The `epirus run <network>` command can be used to run your application without having to specify an Ethereum network endpoint or wallet yourself. Instead the Epirus Platform is used to provide network connectivity and cover network transaction fees.
+
+To take advantage of this, you simply need to run the followinig command in your project directory:
+
+`epirus run <network>` 
+
+Where `network` is one of the followinig:
+
+- `rinkeby`
+- `ropsten`
+
+In order to use this functionality you must be logged in. Behind the scenes, Epirus will build and run your project jar file.
+
+However, if you'd like your application to be bundled up as a container instead, simply run:
+
+`epirus docker run <network>`
+
+This will build a container containing your application and inject your Epirus Platform credentials to continue to take advantage of the provided network connectivity and transaction fees.
+
+
+### Stand-alone unit test generation
 
 When creating a new project or importing solidity contracts, by using:
 
