@@ -19,7 +19,7 @@ However, if you're super impatient, you could just run these commands:
 ``` shell
 curl -L get.epirus.io | sh && source ~/.epirus/source.sh
 epirus new
-cd Web3App && epirus deploy rinkeby
+cd Web3App && epirus run rinkeby
 ```
 
 However, we do encourage you to work through the [Quickstart](quickstart.md)!
