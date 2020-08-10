@@ -36,7 +36,7 @@ Alternatively, you can head [here](https://github.com/epirus-io/epirus-cli/relea
 
 ## Project Creation
 
-After having created a new account, use the command `epirus new` to create a new project. Epirus will use sensible defaults for all the questions asked during the project setup process, so if you hit enter on each question, the output should be similar to the following:
+After having created a new account, use the command `epirus new` to create a new Hello World blockchain application for Ethereum. Epirus will use sensible defaults for all the questions asked during the project setup process, so if you hit enter on each question, the output should be similar to the following:
 
 ``` shell
 $ epirus new
@@ -60,14 +60,21 @@ Project Created Successfully
 Commands
 ./gradlew test               Test your application
 epirus run <network>         Runs your application
-epirus docker run <network>  Runs a dockerized version of your application
 ```
 
 Epirus has now created and built a full project, which includes a *Hello World* smart contract, and all the necessary code to interact with it, test it, and run it. 
 
+Alternatively, if you'd like to try a more advanced option, you can run:
+
+``` shell
+epirus new erc777 --openapi
+```
+
+This will create an OpenAPI service for deploying and managing ERC777 compliant tokens on the Ethereum network.
+
 ## Account Creation
 
-If you wish to make use of the more powerful features of Epirus such as deployment, you will need to sign up for a free account via the [Epirus website](https://www.web3labs.com/epirus).
+If you wish to make use of the more powerful features of Epirus such as its node connectivity and transaction fee management, you will need to sign up for a free account via the [Epirus website](https://www.web3labs.com/epirus).
 
 Once your email address has been confirmed, you will have an account on the Epirus platform and will be able to make use of all features.
 
@@ -104,6 +111,8 @@ Wallet address      https://rinkeby.epirus.io/accounts/0x1f17c4af8313f5923a05b1d
 ```
 
 Once completed you can use the provided links to examine your live blockchain application and account!
+
+If you created an OpenAPI service, you will be able to access it via <http://localhost:9090/swagger-ui>.
 
 ## Containerised deployment
 
@@ -157,7 +166,7 @@ Once built, you can run your container using the `epirus docker run <network>` c
 Use the `-l` (local) parameter to run the container using the default wallet file configured for Epirus (`~/.epirus/.config`):
 
 ``` shell
-epirus docker run -l
+epirus docker run -l <network>
 ```
 
 ### Running externally
@@ -167,7 +176,7 @@ To run in an external environment, such as a Kubernetes cluster, you will need t
 Then you can run the container as follows:
 
 ``` shell
-epirus docker run
+epirus docker run <network>
 ```
 
 ## Running without an Epirus account
@@ -177,8 +186,25 @@ If you wish to run your Epirus applications without creating an Epirus account, 
 - Ethereum wallet or private key
 - Ethereum node endpoint
 
-Examples will be provided shortly.
+The following configuration properties can be used for Java or Kotlin projects:
 
+- `NODE_URL`
+  Ethereum node URL
+- `EPIRUS_WALLET_PATH`
+  Path to Ethereum wallet
+- `EPIRUS_WALLET_PASSWORD`
+  Ethereum wallet password
+  
+For OpenAPI services, the following properties can be used:
+
+- `WEB3J_OPENAPI_ENDPOINT`
+  Ethereum node URL
+- `WEB3J_OPENAPI_PRIVATE_KEY`
+  Hex-encoded private key string (0x...) 
+- `WEB3J_OPENAPI_WALLET_FILE`
+  Alternatively, a wallet file can be provided
+- `WEB3J_OPENAPI_WALLET_PASSWORD`
+  Password for the provided wallet file
 
 ## Monitoring
 
@@ -210,4 +236,4 @@ You can learn more about the Epirus Explorer [here](/explorer).
 
 ## Next Steps
 
-From here you'll probably want to start digging further through the project code created by the Epirus SDK. Read more [here](/sdk).
+From here you'll probably want to start digging further through the project code created by the Epirus SDK and experimenting with some of the other CLI options. Read more [here](/sdk/cli).

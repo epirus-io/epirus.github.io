@@ -1,12 +1,18 @@
 # CLI
 
-An Epirus binary is distributed, providing an interactive command line (CLI). It supports a number of key Epirus project features including:
+An Epirus binary is distributed, providing an interactive command line (CLI). It supports a number of key Epirus project features including the creation of:
 
-- New Java or Kotlin project creation using a Hello World smart contract or existing contract(s)
-- The ability to run your project againist a live network without having to manage network connectivity or transaction fees yourself
-- Java binary or Dockerized deployment
+- Ethereum applications in Java or Kotlin
+- OpenAPI services for Ethereum smart contracts
 
-Behind the scenes there are some more granular commands that you can also use, includinig:
+These projects can then be run by the Epirus CLI either natively as an application binary or within a Docker container.
+
+Epirus provides the following infrastructure behind the scenes to make the user process as seamless as possible:
+
+- Public network connectivity (Rinkeby or Ropsten test networks)
+- Transaction fee management so the user does not need to be concerned with obtaining Ether to run their application.
+
+Behind the scenes there are some more granular commands that you can also use, including:
 
 - Wallet creation
 - Wallet password management
@@ -15,7 +21,6 @@ Behind the scenes there are some more granular commands that you can also use, i
 - Generation of unit tests for Java smart contract wrappers
 - Smart contract auditing
 - Account creation & management
-- Wallet funding
 
 ## Installation
 
@@ -45,17 +50,19 @@ Alternatively you can download the latest CLI release [here](https://github.com/
 
 ## Project creation
 
-The `epirus new` and `epirus import` commands provide a convenient way to create a new Kotlin/Java project using Epirus's Command Line Tools.
+The `epirus new` and `epirus import` commands provide a convenient way to create a new Java or Kotlin project, or OpenAPI service using Epirus's Command Line Tools.
 
-These commands provide the following functionality:
+For Java or Kotlin projects, they provide the following functionality:
 
-- Creation of a new Java/Kotlin project.
+- Base project creation.
 - Generation of a simple *Hello World* Solidity contract or import an existing Solidity project from a file or directory.
 - Compilation of the Solidity files.
 - Configure the project to use the Gradle build tool.
 - Generate Java smart contract wrappers for all provided Solidity files.
-- Add the required Epirus dependencies, to deploy and interact with the contracts.
+- Add the required Epirus dependencies, to run and interact with the contracts.
 - Generate unit tests for the Java smart contract wrappers.
+
+In the case of an OpenAPI service, Epirus creates a runnable OpenAPI service for deploying and interacting with smart contracts via OpenAPI compliant endpoints with full Swagger documentation provided.
 
 
 ### Create a new project
@@ -63,15 +70,27 @@ These commands provide the following functionality:
 To generate a new project interactively:
 
 ``` shell
-epirus new [--java|--kotlin]
+epirus new [--java|--kotlin|--openapi] [helloworld|erc777]
 ``` 
 
 Where supported `new` command arguments are as follows:
 
 - `--java`
-  Creation of a new Java project
+  Creation of a new Java project (default)
 - `--kotlin`
   Creation of a new Kotlin project
+- `--openapi`
+  Creation of a new OpenAPI project
+- `helloworld`
+  Use a simple Hello World Solidity smart contract (default)
+- `erc777`
+  Create an [ERC777](https://eips.ethereum.org/EIPS/eip-777) compliant token
+
+If no arguments are specified, the default project creation used is:
+
+``` shell
+epirus new --java helloworld
+```
 
 You will be prompted to answer a series of questions to create your project:
 
@@ -101,11 +120,10 @@ epirus docker run <network>  Runs a dockerized version of your application
 
 Details of the created project structure are [below](#generated-project-structure).
 
-
 Or using non-interactive mode:
 
 ``` shell
-epirus new [--java|--kotlin] -n <project name> -p <package name> [-o <path>]
+epirus new [--java|--kotlin|--openapi] -n <project name> -p <package name> [-o <path>]
 ```
 
 The `-o` option can be omitted if you want to generate the project in the current directory.
@@ -120,7 +138,7 @@ Similarly to `epirus new`, `epirus import` will create a new  project but with u
 Again, to generate a new project interactively:
 
 ``` shell
-epirus import [--java|--kotlin]
+epirus import [--java|--kotlin|--openapi]
 ``` 
 
 You will be prompted to answer a series of questions to create your project:
@@ -178,14 +196,115 @@ Where `network` is one of the followinig:
 
 In order to use this functionality you must be logged in. Behind the scenes, Epirus will build and run your project jar file.
 
+If you created an OpenAPI service, by default it binds to port 9090 on your host. You can access the SwaggerUI for the service via the URL <http://localhost:9090/swagger-ui>.
+
 However, if you'd like your application to be bundled up as a container instead, simply run:
 
-`epirus docker run <network>`
+`epirus docker run [-l] <network>`
 
-This will build a container containing your application and inject your Epirus Platform credentials to continue to take advantage of the provided network connectivity and transaction fees.
+This will build a container containing your application and inject your Epirus Platform credentials to continue to take advantage of the provided network connectivity and transaction fees. If you use the `-l` parameter, it will not create a new wallet, and use your local wallet for funding transactions.
 
+### Environment variables
 
-### Stand-alone unit test generation
+A number of properties can be configured for your Epirus applications to customise them at runtime. By default if you use `epirus run` you shouldn't need to alter them, however, for production deployments you may wish to change some of them.
+
+The following configuration properties can be used for Java or Kotlin projects:
+
+- `NODE_URL`
+  Ethereum node URL
+- `EPIRUS_WALLET_PATH`
+  Path to Ethereum wallet
+- `EPIRUS_WALLET_PASSWORD`
+  Ethereum wallet password
+  
+For OpenAPI services, the following properties can be used:
+
+- `WEB3J_OPENAPI_NAME`
+  Project name
+- `WEB3J_OPENAPI_CONTEXT_PATH`
+  Project context path, defaults to project name 
+- `WEB3J_OPENAPI_HOST`
+  Hostname for service, defaults to localhost
+- `WEB3J_OPENAPI_PORT`
+  Port to bind to, defaults to 9090
+- `WEB3J_OPENAPI_ENDPOINT`
+  Ethereum node URL
+- `WEB3J_OPENAPI_PRIVATE_KEY`
+  Hex-encoded private key string (0x...) 
+- `WEB3J_OPENAPI_WALLET_FILE`
+  Alternatively, a wallet file can be provided
+- `WEB3J_OPENAPI_WALLET_PASSWORD`
+  Password for the provided wallet file
+  
+## Generated Java/Kotlin project structure
+
+Your application code and tests will be located in the following project directories:
+
+For Java:
+
+- `./src/main/java` - Generated Java application code stub
+- `./src/test/java` - Generated Java test code stubs
+- `./src/main/solidity` - Solidity source code
+
+For Kotlin:
+
+- `./src/main/kotlin` - Generated Kotlin application code stub
+- `./src/test/kotlin` - Generated Kotlin test code stubs
+- `./src/main/solidity` - Solidity source code
+
+If you need to edit the build file, it is located in the project root directory:
+
+- `./build.gradle` - Gradle build configuration file
+
+Additionally there are the following Gradle artifacts which you can ignore.
+
+- `/gradle` - local Gradle installation
+- `/.gradle` - local Gradle cache
+- `/build` - compiled classes including smart contract bindings
+
+If you need to view any of the generated Solidity or contract artifacts, they are available in the following locations.
+
+Solidity `bin` and `abi` files are located at:
+
+- `./build/resources/main/solidity/`
+
+The source code for the generated smart contract bindings can be found at:
+
+- `./build/generated/source/epirus/main/java/<your-package>/generated/contracts`
+
+The compiled code for the generated smart contracts bindings is available at the below location. These are the artifacts that you use to deploy, transact and query your smart contracts.
+
+- `./build/classes/java/main/<your-package>/generated/contracts/`
+
+## Generated OpenAPI project structure
+
+Currently OpenAPI projects are not intended to be modified once generated. I.e. they are only meant to be run by the user to deploy and interact directly with a smart contract.
+
+We expect to be releasing an Web3j-OpenAPI Gradle plugin shortly that will enable users to easily modify the generated services.
+
+## Build commands
+
+Epirus projects use the Gradle build tool under the covers. Gradle is a build DSL for JVM projects used widely in Java, Kotlin and Android projects. You shouldn't need to be too concerned with the semantics of Gradle beyond the following build commands:
+
+To build the project run:
+
+``` shell
+./gradlew build
+```
+
+To update the just the smart contract bindings following changes to the Solidity code run:
+
+``` shell
+./gradlew generateContractWrappers
+```
+
+To delete all project build artifacts, creating a clean environment, run:
+
+``` shell
+./gradlew clean
+```
+
+## Stand-alone unit test generation
 
 When creating a new project or importing solidity contracts, by using:
 
@@ -218,70 +337,6 @@ epirus generate-tests -i <Solidity Java wrappers> -o <output path>
 
 When adding the path to your Java wrappers make sure you specify the path up to the package root e.g:
 If a class with name HelloWorld and package name `io.epirus` is located under `/home/user/code/myproject/io/epirus/HelloWorld.java`, the correct way to point to that class is `/home/user/code/myproject/`
-
-## Generated project structure
-
-Your application code and tests will be located in the following project directories:
-
-For Java:
-
-- `./src/main/java` - Generated Java application code stub
-- `./src/test/java` - Generated Java test code stub
-- `./src/main/solidity` - Solidity source code
-
-For Kotlin:
-
-- `./src/main/kotlin` - Generated Kotlin application code stub
-- `./src/test/kotlin` - Generated Kotlin test code stub
-- `./src/main/solidity` - Solidity source code
-
-If you need to edit the build file, it is located in the project root directory:
-
-- `./build.gradle` - Gradle build configuration file
-
-Additionally there are the following Gradle artifacts which you can ignore.
-
-- `/gradle` - local Gradle installation
-- `/.gradle` - local Gradle cache
-- `/build` - compiled classes including smart contract bindings
-
-If you need to view any of the generated Solidity or contract artifacts, they are available in the following locations.
-
-Solidity `bin` and `abi` files are located at:
-
-- `./build/resources/main/solidity/`
-
-The source code for the generated smart contract bindings can be found at:
-
-- `./build/generated/source/epirus/main/java/<your-package>/generated/contracts`
-
-The compiled code for the generated smart contracts bindings is available at the below location. These are the artifacts that you use to deploy, transact and query your smart contracts.
-
-- `./build/classes/java/main/<your-package>/generated/contracts/`
-
-
-## Build commands
-
-Epirus projects use the Gradle build tool under the covers. Gradle is a build DSL for JVM projects used widely in Java, Kotlin and Android projects. You shouldn't need to be too concerned with the semantics of Gradle beyond the following build commands:
-
-To build the project run:
-
-``` shell
-./gradlew build
-```
-
-To update the just the smart contract bindings following changes to the Solidity code run:
-
-``` shell
-./gradlew generateContractWrappers
-```
-
-To delete all project build artifacts, creating a clean environment, run:
-
-``` shell
-./gradlew clean
-```
-
 
 ## Wallet tools
 
