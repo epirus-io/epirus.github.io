@@ -235,7 +235,47 @@ For OpenAPI services, the following properties can be used:
   Alternatively, a wallet file can be provided
 - `WEB3J_OPENAPI_WALLET_PASSWORD`
   Password for the provided wallet file
-  
+
+## Running your application without an Epirus account
+
+You can run your Epirus applications without an Epirus account using the following mechanisms. However, in doing this you need to provide node and wallet details manually. Additionally you will have to cover network transaction fees yourself.
+
+### Running with the Java Runtimie Environment (JRE)
+
+These properties can be used as environment variables if running project using the Java JRE:
+
+``` shell
+export VAR1=value
+...
+java -jar <app>.jar
+```
+
+You can find the relevent application binary in the following locations:
+
+Java or Kotlin projects:
+
+- `build/libs/<project-name>-0.1.0-all.jar`
+
+OpenAPI projects
+
+- `server/build/libs/<projectName>-server-all.jar`
+
+### Running with Docker
+
+If running the built container with Docker, you should use the following syntax to pass in environment variables:
+
+``` shell
+docker run -e VAR1=value1 -e VAR2=value2 web3app
+```
+
+### Running with Gradle
+
+If you wish to use the Gradle build tool to run your application, you should pass in the required variables in using the following syntax, where variable names are in lowercase and understcores are replaced with hyphens in their names.
+
+``` shell
+./gradlew run --args="--<var1> <value1> --<var1> <value2> ..."
+```
+
 ## Generated Java/Kotlin project structure
 
 Your application code and tests will be located in the following project directories:
