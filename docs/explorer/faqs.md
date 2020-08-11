@@ -14,7 +14,7 @@ Please head to the [Getting Started](getting_started.md#azure) section for instr
     
 ## Are you hiring?
     
-Please head to our [jobs portal](https://web3labs.workable.com/) for current listings.
+Please head to our [jobs portal](https://angel.co/company/web3labs/jobs) for current listings.
 
 ## How can I manage users credentials in Epirus on AWS?
 

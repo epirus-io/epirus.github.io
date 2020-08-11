@@ -30,10 +30,10 @@ The simplest way to install the Epirus CLI is via the following script:
 curl -L get.epirus.io | sh && source ~/.epirus/source.sh
 ```
 
-You can verify the installation was successful by running `epirus version`, which should output as follows:
+You can verify the installation was successful by running `epirus -V`, which should output as follows:
 
 ``` shell
-
+$ epirus -V
   ______       _                
  |  ____|     (_)               
  | |__   _ __  _ _ __ _   _ ___ 
@@ -42,8 +42,8 @@ You can verify the installation was successful by running `epirus version`, whic
  |______| .__/|_|_|   \__,_|___/
         | |                     
         |_|                     
-Version: 0.9.1
-Build timestamp: 2020-03-31 11:39:28.526 UTC
+Version: 1.0.0
+Build timestamp: 2020-08-10 22:42:28.435 UTC
 ```
 
 Alternatively you can download the latest CLI release [here](https://github.com/epirus-io/epirus-cli/releases/latest).
@@ -128,7 +128,7 @@ epirus new [--java|--kotlin|--openapi] -n <project name> -p <package name> [-o <
 
 The `-o` option can be omitted if you want to generate the project in the current directory.
 
-The `project name ` and `package name` values must comply with the JVM standards. The project name is also used as the maini class name.
+The `project name ` and `package name` values must comply with the JVM standards. The project name is also used as the main class name.
 
 
 ### Import an existing project

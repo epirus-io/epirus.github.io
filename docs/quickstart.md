@@ -171,7 +171,23 @@ epirus docker run -l <network>
 
 ### Running externally
 
-To run in an external environment, such as a Kubernetes cluster, you will need to ensure the following environment variables are defined:
+To run in an external environment, such as a Kubernetes cluster, you will need to ensure that the wallet to be used by the project is defined - transaction fees will still be maintained by Epirus.
+
+- `EPIRUS_WALLET_PATH`
+  Path to Ethereum wallet
+- `EPIRUS_WALLET_PASSWORD`
+  Ethereum wallet password
+
+For an OpenAPI service, you will need to define the following:
+
+- `WEB3J_OPENAPI_PRIVATE_KEY`
+  Hex-encoded private key string (0x...) 
+- `WEB3J_OPENAPI_WALLET_FILE`
+  Alternatively, a wallet file can be provided
+- `WEB3J_OPENAPI_WALLET_PASSWORD`
+  Password for the provided wallet file
+
+If you need to create a new wallet, you can use the `epirus wallet create` command. Further details are available [here](sdk/cli/#wallet-tools).
 
 Then you can run the container as follows:
 
@@ -228,7 +244,7 @@ If you hover over the `constructor` field you will see the Hello World message t
 
 ![View Hello World in Epirus Explorer](./img/explorer_helloworld.png)
 
-The other view provides details of all transactions associated with your recently created wallet file. This was created when you ran the `epirus new` command, and funded with the cryptocurrency Ether when you ran `epirus deploy`. This funding activity allows you to pay for transactions on the public Ethereum network.
+The other view provides details of all transactions associated with your recently created wallet file. This was created when you ran the `epirus new` command, and funded with the cryptocurrency Ether when you ran `epirus run` as the created project deploys a real Hello World smart contract when it runs. This funding activity allows you to pay for transactions on the public Ethereum network.
 
 ![View wallet in Epirus Explorer](./img/explorer_wallet.png)
 

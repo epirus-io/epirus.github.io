@@ -52,7 +52,8 @@ module.exports = {
         children: [
           '/sdk/',
           '/sdk/cli',
-          '/sdk/faucets'
+          '/sdk/faucets',
+          '/sdk/faqs'
         ]
       }
     ],
