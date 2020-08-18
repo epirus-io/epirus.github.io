@@ -206,7 +206,7 @@ If you wish to run your Epirus applications without creating an Epirus account, 
 
 The below configuration properties can be used for Java or Kotlin projects:
 
-- `NODE_URL`
+- `EPIRUS_NODE_URL`
   Ethereum node URL
 - `EPIRUS_WALLET_PATH`
   Path to Ethereum wallet
