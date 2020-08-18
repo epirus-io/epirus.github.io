@@ -204,7 +204,7 @@ If you wish to run your Epirus applications without creating an Epirus account, 
 
 ### Required properties
 
-The below configuration properties can be used for Java or Kotlin projects:
+The below configuration properties can be used for Java, Kotlin or OpenAPI projects:
 
 - `EPIRUS_NODE_URL`
   Ethereum node URL
@@ -215,13 +215,13 @@ The below configuration properties can be used for Java or Kotlin projects:
   
 For OpenAPI services, the following properties can be used:
 
-- `WEB3J_OPENAPI_ENDPOINT`
+- `WEB3J_ENDPOINT`
   Ethereum node URL
-- `WEB3J_OPENAPI_PRIVATE_KEY`
+- `WEB3J_PRIVATE_KEY`
   Hex-encoded private key string (0x...) 
-- `WEB3J_OPENAPI_WALLET_FILE`
+- `WEB3J_WALLET_FILE`
   Alternatively, a wallet file can be provided
-- `WEB3J_OPENAPI_WALLET_PASSWORD`
+- `WEB3J_WALLET_PASSWORD`
   Password for the provided wallet file
 
 You can refer to the instructions [here](/sdk/cli/#running-your-application-without-an-epirus-account) for further details.
