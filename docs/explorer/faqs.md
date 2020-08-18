@@ -82,6 +82,16 @@ Check that the instance name that you have used is globally unique. Using a comm
 
 If this does not resolve your issue, please [email us](mailto:support@web3labs.com) with details of the parameters you're trying to use.
 
+## Error: `Marketplace purchase eligibilty check returned errors`
+
+You receive the following message after attempting deployment:
+
+``` shell
+Offer with PublisherId: 'blk-technologies', OfferId: 'azure-blockchain-explorer' cannot be purchased due to validation errors. For more information see details. Correlation Id: '15738b73-bcd0-4f52-bee4-9982f93830ef' The 'unknown' payment instrument(s) is not supported for offer with OfferId: 'azure-blockchain-explorer', PlanId 'blockchain-service-explorer'. Correlation Id '15738b73-bcd0-4f52-bee4-9982f93830ef'.[{\"The 'unknown' payment instrument(s) is not supported for offer with OfferId: 'azure-blockchain-explorer', PlanId 'blockchain-service-explorer'. Correlation Id '15738b73-bcd0-4f52-bee4-9982f93830ef'.\":\"StoreApi\"
+```
+
+Make sure that you have a valid credit card associated with your Azure subscription. If one is not present, the Azure Marketplace will not let you deploy Epirus.
+
 ## Epirus Explorer is stuck on the loading page
 
 Please ensure that you are using the correct node endpoint. To verify it, you can run the following command:
