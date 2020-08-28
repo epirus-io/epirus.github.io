@@ -210,11 +210,11 @@ A number of properties can be configured for your Epirus applications to customi
 
 The following configuration properties can be used for Java or Kotlin projects:
 
-- `NODE_URL`
+- `WEB3J_ENDPOINT`
   Ethereum node URL
-- `EPIRUS_WALLET_PATH`
+- `WEB3J_WALLET_PATH`
   Path to Ethereum wallet
-- `EPIRUS_WALLET_PASSWORD`
+- `WEB3J_WALLET_PASSWORD`
   Ethereum wallet password
   
 For OpenAPI services, the following properties can be used:
@@ -227,13 +227,13 @@ For OpenAPI services, the following properties can be used:
   Hostname for service, defaults to localhost
 - `WEB3J_OPENAPI_PORT`
   Port to bind to, defaults to 9090
-- `WEB3J_OPENAPI_ENDPOINT`
+- `WEB3J_ENDPOINT`
   Ethereum node URL
-- `WEB3J_OPENAPI_PRIVATE_KEY`
+- `WEB3J_PRIVATE_KEY`
   Hex-encoded private key string (0x...) 
-- `WEB3J_OPENAPI_WALLET_FILE`
+- `WEB3J_WALLET_PATH`
   Alternatively, a wallet file can be provided
-- `WEB3J_OPENAPI_WALLET_PASSWORD`
+- `WEB3J_WALLET_PASSWORD`
   Password for the provided wallet file
 
 ## Running your application without an Epirus account
