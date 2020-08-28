@@ -223,6 +223,8 @@ For OpenAPI services, the following properties can be used:
   Project name
 - `WEB3J_OPENAPI_CONTEXT_PATH`
   Project context path, defaults to project name 
+- `WEB3J_OPENAPI_CONTRACT_ADDRESSES`
+  Pre-deployed contract addresses as a map (Contract1=0x...,Contract2=0x...)
 - `WEB3J_OPENAPI_HOST`
   Hostname for service, defaults to localhost
 - `WEB3J_OPENAPI_PORT`
