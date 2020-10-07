@@ -33,7 +33,7 @@ curl -L get.epirus.io | sh && source ~/.epirus/source.sh
 You can verify the installation was successful by running `epirus -V`, which should output as follows:
 
 ``` shell
-$ epirus -V
+$ epirus -v
   ______       _                
  |  ____|     (_)               
  | |__   _ __  _ _ __ _   _ ___ 
@@ -62,83 +62,61 @@ For Java or Kotlin projects, they provide the following functionality:
 - Add the required Epirus dependencies, to run and interact with the contracts.
 - Generate unit tests for the Java smart contract wrappers.
 
-In the case of an OpenAPI service, Epirus creates a runnable OpenAPI service for deploying and interacting with smart contracts via OpenAPI compliant endpoints with full Swagger documentation provided.
+In the case of an OpenAPI service, with the command `epirus openapi new`, Epirus creates a runnable OpenAPI service for deploying and interacting with smart contracts via OpenAPI compliant endpoints with full Swagger documentation provided.
 
+Epirus also gives you the ability to do more via:
+
+- Base OpenAPI project creation : `epirus openapi new`.
+- Create an OpenAPI project using specific contracts : `epirus openapi import`.
+- Generate an OpenAPI executable JAR : `epirus openapi jar`.
+- Generate RESTful endpoints and their implementation : `epirus openapi generate`.
 
 ### Create a new project
 
-To generate a new project interactively:
+To generate a new project :
 
 ``` shell
-epirus new [--java|--kotlin|--openapi] [helloworld|erc777]
+epirus new [--kotlin|-o <output path>|-n <project name>|-p <package name>] [helloworld|erc777]
 ``` 
 
 Where supported `new` command arguments are as follows:
 
-- `--java`
-  Creation of a new Java project (default)
 - `--kotlin`
-  Creation of a new Kotlin project
-- `--openapi`
-  Creation of a new OpenAPI project
+  Creation of a new Kotlin project instead of the default Java one
 - `helloworld`
   Use a simple Hello World Solidity smart contract (default)
 - `erc777`
   Create an [ERC777](https://eips.ethereum.org/EIPS/eip-777) compliant token
 
+The `project name ` and `package name` values must comply with the JVM standards. The project name is also used as the main class name.
+
 If no arguments are specified, the default project creation used is:
 
 ``` shell
-epirus new --java helloworld
-```
-
-You will be prompted to answer a series of questions to create your project:
-
-``` shell
-  ______       _                
- |  ____|     (_)               
- | |__   _ __  _ _ __ _   _ ___ 
- |  __| | '_ \| | '__| | | / __|
- | |____| |_) | | |  | |_| \__ \
- |______| .__/|_|_|   \__,_|___/
-        | |                     
-        |_|                     
-Please enter the project name [Web3App]:
-
-Please enter the package name for your project [io.epirus]:
-
-Please enter the destination of your project [/home/user/project]: 
-
-[ | ] Creating Web3App
-Project Created Successfully
-
-Commands
-./gradlew test               Test your application
-epirus run <network>         Runs your application
-epirus docker run <network>  Runs a dockerized version of your application
+epirus new helloworld
 ```
 
 Details of the created project structure are [below](#generated-project-structure).
 
-Or using non-interactive mode:
-
-``` shell
-epirus new [--java|--kotlin|--openapi] -n <project name> -p <package name> [-o <path>]
-```
-
-The `-o` option can be omitted if you want to generate the project in the current directory.
-
-The `project name ` and `package name` values must comply with the JVM standards. The project name is also used as the main class name.
-
-
 ### Import an existing project
 
-Similarly to `epirus new`, `epirus import` will create a new  project but with user defined smart contracts. By default a Java project will be generated if an option is not provided.
-
-Again, to generate a new project interactively:
+Similarly, to `epirus new`, `epirus import` will create a new  project but with user defined smart contracts. By default a Java project will be generated if no option is provided.
 
 ``` shell
-epirus import [--java|--kotlin|--openapi]
+epirus import -s <path to solidity sources> [-o <path>|-n <project name>|-p <package name>] -t
+```
+
+The `-s` option will work with a single Solidity file or a folder containing Solidity files.
+The `-t` option is false by default. By passing `-t` unit tests will be generated for the Java wrappers.
+
+or 
+
+``` shell
+epirus import 
+```
+ 
+Then, you will be prompted to set the Solidity files directory:
+    
 ``` 
 
 You will be prompted to answer a series of questions to create your project:
@@ -152,34 +130,13 @@ You will be prompted to answer a series of questions to create your project:
  |______| .__/|_|_|   \__,_|___/
         | |                     
         |_|  
-Please enter the project name [Web3App]:
-MyImportedProject
-Please enter the package name for your project [io.epirus]:
 
 Please enter the path to your solidity file/folder [Required Field]: 
 /path/to/solidity
-Please enter the destination of your project [/home/user/Documents/myfolder]: 
-.
 Would you like to generate unit test for your solidity contracts [Y/n] ? 
 n
-Project created with name: myimportedproject at location: .
-$
+...
 ```
-
-This command can also be used non-interactively
-
-``` shell
-epirus import -n <project name> -p <package name> -s <path to solidity sources> [-o <path>] -t
-```
-
-or 
-
-``` shell
-epirus import 
-```
-
-The `-s` option will work with a single Solidity file or a folder containing solidity files.
-The `-t` option is false by default. By passing `-t` unit tests will be generated for the java wrappers.
 
 ## Running your application
 
@@ -221,8 +178,6 @@ For OpenAPI services, the following properties can be used:
 
 - `WEB3J_OPENAPI_NAME`
   Project name
-- `WEB3J_OPENAPI_CONTEXT_PATH`
-  Project context path, defaults to project name 
 - `WEB3J_OPENAPI_CONTRACT_ADDRESSES`
   Pre-deployed contract addresses as a map (Contract1=0x...,Contract2=0x...)
 - `WEB3J_OPENAPI_HOST`
@@ -260,7 +215,7 @@ Java or Kotlin projects:
 
 OpenAPI projects
 
-- `server/build/libs/<projectName>-server-all.jar`
+- `build/libs/<projectName>-server-all.jar`
 
 ### Running with Docker
 
@@ -275,7 +230,7 @@ docker run -e VAR1=value1 -e VAR2=value2 web3app
 If you wish to use the Gradle build tool to run your application, you should pass in the required variables in using the following syntax, where variable names are in lowercase and understcores are replaced with hyphens in their names.
 
 ``` shell
-./gradlew run --args="--<var1> <value1> --<var1> <value2> ..."
+./gradlew run --args="--<var1> <value1> --<var2> <value2> ..."
 ```
 
 ## Generated Java/Kotlin project structure
@@ -298,7 +253,7 @@ If you need to edit the build file, it is located in the project root directory:
 
 - `./build.gradle` - Gradle build configuration file
 
-Additionally there are the following Gradle artifacts which you can ignore.
+Additionally, there are the following Gradle artifacts which you can ignore.
 
 - `/gradle` - local Gradle installation
 - `/.gradle` - local Gradle cache
@@ -314,15 +269,22 @@ The source code for the generated smart contract bindings can be found at:
 
 - `./build/generated/source/epirus/main/java/<your-package>/generated/contracts`
 
-The compiled code for the generated smart contracts bindings is available at the below location. These are the artifacts that you use to deploy, transact and query your smart contracts.
+The compiled code for the generated smart contracts bindings is available at the below location. These are the artifacts used to deploy, transact and query your smart contracts.
 
 - `./build/classes/java/main/<your-package>/generated/contracts/`
 
 ## Generated OpenAPI project structure
 
-Currently OpenAPI projects are not intended to be modified once generated. I.e. they are only meant to be run by the user to deploy and interact directly with a smart contract.
+Similar to the Java/Kotlin projects. The Solidity files are located in the following `./src/main/solidity`.
 
-We expect to be releasing an Web3j-OpenAPI Gradle plugin shortly that will enable users to easily modify the generated services.
+The generated OpenAPI code resides in `./build/generated/source/web3j/main`, and is structured as follows :
+ 
+- Java wrappers :  `java/<package name>/wrappers`
+- REST endpoints interfaces : `kotlin/<package name>/core`
+- REST endpoints implementations : `kotlin/<package name>/server`
+- SwaggerUI : `resources/static/swagger-ui`
+
+For the ERC777 OpenAPI generated API, it is not intended to be modified once generated. I.e. it is only meant to be run by the user to deploy and interact directly with the token.
 
 ## Build commands
 
@@ -334,10 +296,22 @@ To build the project run:
 ./gradlew build
 ```
 
-To update the just the smart contract bindings following changes to the Solidity code run:
+To update just the smart contract bindings following changes to the Solidity code run:
 
 ``` shell
 ./gradlew generateContractWrappers
+```
+
+To update the OpenAPI code, when using an OpenAPI project, following changes to the Solidity code run:
+
+``` shell
+./gradlew generateWeb3jOpenApi
+```
+
+To update the generated SwaggerUI, when using an OpenAPI project, following changes to the Solidity code run:
+
+``` shell
+./gradlew generateWeb3jSwaggerUi
 ```
 
 To delete all project build artifacts, creating a clean environment, run:
@@ -351,7 +325,7 @@ To delete all project build artifacts, creating a clean environment, run:
 When creating a new project or importing solidity contracts, by using:
 
 ``` shell
-epirus generate-tests
+epirus generate tests
 ```
 
 You will be prompted to answer a series of questions to generate your tests:
@@ -374,7 +348,7 @@ Unit tests were generated successfully at location: .
 The command can also be used non-interactively
 
 ``` shell
-epirus generate-tests -i <Solidity Java wrappers> -o <output path>
+epirus generate tests -i <Solidity Java wrappers> -o <output path>
 ```
 
 When adding the path to your Java wrappers make sure you specify the path up to the package root e.g:
@@ -400,7 +374,7 @@ To send Ether to another address:
 $ epirus wallet send <walletfile> 0x<address>|<ensName>
 ```
 
-When sending Ether to another address you will be asked a series of questions before the transaction takes place. See the below for a full example
+When sending Ether to another address you will be asked a series of questions before the transaction takes place. Check below for a full example.
 
 The following example demonstrates using Epirus to send Ether to another wallet.
 
@@ -447,7 +421,7 @@ For instance, to fund the address `0xc6c7224128b9714b47009be351d0ea5bcb16da29`, 
 epirus wallet fund rinkeby 0xc6c7224128b9714b47009be351d0ea5bcb16da29
 ```
 
-Please note that this functionality requires a proof-of-work based captcha, and is rate-limited. [Rinkeby](https://rinkeby.faucet.epirus.io/) and [Ropsten](https://ropsten.faucet.epirus.io/) Web3 Labs faucets can also be accessed from your browser.
+Please note that this functionality requires a proof-of-work based captcha, and is rate-limited. [Rinkeby](https://rinkeby.faucet.epirus.io/),and [Ropsten](https://ropsten.faucet.epirus.io/) Web3 Labs faucets can also be accessed from your browser.
 
 
 ## Auditing Tools

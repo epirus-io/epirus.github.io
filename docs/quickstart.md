@@ -58,8 +58,9 @@ Please enter the destination of your project [/home/user/Web3App]:
 Project Created Successfully
 
 Commands
-./gradlew test               Test your application
-epirus run <network>         Runs your application
+./gradlew test                      Test your application
+epirus run <network>                Runs your application
+epirus docker run rinkeby|ropsten   Runs your application in a docker container
 ```
 
 Epirus has now created and built a full project, which includes a *Hello World* smart contract, and all the necessary code to interact with it, test it, and run it. 
@@ -67,10 +68,12 @@ Epirus has now created and built a full project, which includes a *Hello World* 
 Alternatively, if you'd like to try a more advanced option, you can run:
 
 ``` shell
-epirus new erc777 --openapi
+epirus openapi new erc777
 ```
 
 This will create an OpenAPI service for deploying and managing ERC777 compliant tokens on the Ethereum network.
+
+Check the [Web3j-OpenAPI](https://docs.web3j.io/web3j_openapi) documentation for more information.
 
 ## Account Creation
 
