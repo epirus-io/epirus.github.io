@@ -267,7 +267,7 @@ Solidity `bin` and `abi` files are located at:
 
 The source code for the generated smart contract bindings can be found at:
 
-- `./build/generated/source/epirus/main/java/<your-package>/generated/contracts`
+- `./build/generated/sources/epirus/main/java/<your-package>/generated/contracts`
 
 The compiled code for the generated smart contracts bindings is available at the below location. These are the artifacts used to deploy, transact and query your smart contracts.
 
@@ -277,7 +277,7 @@ The compiled code for the generated smart contracts bindings is available at the
 
 Similar to the Java/Kotlin projects. The Solidity files are located in the following `./src/main/solidity`.
 
-Additionally, the generated OpenAPI code resides in `./build/generated/source/web3j/main`, and is structured as follows :
+Additionally, the generated OpenAPI code resides in `./build/generated/sources/web3j/main`, and is structured as follows :
  
 - Java wrappers :  `java/<package name>/wrappers`
 - REST endpoints interfaces : `kotlin/<package name>/core`
