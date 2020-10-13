@@ -174,21 +174,21 @@ epirus docker run -l <network>
 
 ### Running externally
 
-To run in an external environment, such as a Kubernetes cluster, you will need to ensure that the wallet to be used by the project is defined - transaction fees will still be maintained by Epirus.
+To run in an external environment, such as a Kubernetes cluster, you will need to ensure that the credentials used by the project are defined - transaction fees will still be maintained by Epirus.
+
+To do so, you can either specify a wallet via defining the following variable: 
 
 - `WEB3J_WALLET_PATH`
   Path to Ethereum wallet
 - `WEB3J_WALLET_PASSWORD`
   Ethereum wallet password
 
-For an OpenAPI service, you will need to define the following:
+Or use private key:
 
 - `WEB3J_PRIVATE_KEY`
   Hex-encoded private key string (0x...) 
-- `WEB3J_WALLET_PATH`
-  Alternatively, a wallet file can be provided
-- `WEB3J_WALLET_PASSWORD`
-  Password for the provided wallet file
+  
+Same goes for running an OpenAPI service.
 
 If you need to create a new wallet, you can use the `epirus wallet create` command. Further details are available [here](sdk/cli/#wallet-tools).
 
@@ -208,15 +208,6 @@ If you wish to run your Epirus applications without creating an Epirus account, 
 ### Required properties
 
 The below configuration properties can be used for Java, Kotlin or OpenAPI projects:
-
-- `WEB3J_ENDPOINT`
-  Ethereum node URL
-- `WEB3J_WALLET_PATH`
-  Path to Ethereum wallet
-- `WEB3J_WALLET_PASSWORD`
-  Ethereum wallet password
-  
-For OpenAPI services, the following properties can be used:
 
 - `WEB3J_ENDPOINT`
   Ethereum node URL

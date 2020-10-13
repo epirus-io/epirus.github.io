@@ -165,7 +165,7 @@ This will build a container containing your application and inject your Epirus P
 
 A number of properties can be configured for your Epirus applications to customise them at runtime. By default if you use `epirus run` you shouldn't need to alter them, however, for production deployments you may wish to change some of them.
 
-The following configuration properties can be used for Java or Kotlin projects:
+The following configuration properties can be used for Java or OpenAPI projects:
 
 - `WEB3J_ENDPOINT`
   Ethereum node URL
@@ -173,8 +173,10 @@ The following configuration properties can be used for Java or Kotlin projects:
   Path to Ethereum wallet
 - `WEB3J_WALLET_PASSWORD`
   Ethereum wallet password
+- `WEB3J_PRIVATE_KEY`
+  Hex-encoded private key string (0x...) 
   
-For OpenAPI services, the following properties can be used:
+Additionally, for OpenAPI services, the following properties can be used:
 
 - `WEB3J_OPENAPI_NAME`
   Project name
@@ -184,14 +186,6 @@ For OpenAPI services, the following properties can be used:
   Hostname for service, defaults to localhost
 - `WEB3J_OPENAPI_PORT`
   Port to bind to, defaults to 9090
-- `WEB3J_ENDPOINT`
-  Ethereum node URL
-- `WEB3J_PRIVATE_KEY`
-  Hex-encoded private key string (0x...) 
-- `WEB3J_WALLET_PATH`
-  Alternatively, a wallet file can be provided
-- `WEB3J_WALLET_PASSWORD`
-  Password for the provided wallet file
 
 ## Running your application without an Epirus account
 
@@ -279,7 +273,7 @@ Similar to the Java/Kotlin projects. The Solidity files are located in the follo
 
 Additionally, the generated OpenAPI code resides in `./build/generated/sources/web3j/main`, and is structured as follows :
  
-- Java wrappers :  `java/<package name>/wrappers`
+- Java smart contract wrappers :  `java/<package name>/wrappers`
 - REST endpoints interfaces : `kotlin/<package name>/core`
 - REST endpoints implementations : `kotlin/<package name>/server`
 - SwaggerUI : `resources/static/swagger-ui`
