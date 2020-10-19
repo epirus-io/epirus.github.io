@@ -257,11 +257,11 @@ If you need to view any of the generated Solidity or contract artifacts, they ar
 
 Solidity `bin` and `abi` files are located at:
 
-- `<project directory>/build/resources/main/solidity/`
+- `build/resources/main/solidity/`
 
 The source code for the generated smart contract bindings can be found at:
 
-- `<project directory>/build/generated/sources/epirus/main/java/<your-package>/generated/contracts`
+- `build/generated/sources/epirus/main/java/<your-package>/generated/contracts`
 
 The compiled code for the generated smart contracts bindings is available at the below location. These are the artifacts used to deploy, transact and query your smart contracts.
 
