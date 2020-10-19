@@ -30,7 +30,7 @@ The simplest way to install the Epirus CLI is via the following script:
 curl -L get.epirus.io | sh && source ~/.epirus/source.sh
 ```
 
-You can verify the installation was successful by running `epirus -V`, which should output as follows:
+You can verify the installation was successful by running `epirus -v`, which should output as follows:
 
 ``` shell
 $ epirus -v
