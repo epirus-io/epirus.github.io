@@ -179,13 +179,13 @@ The following configuration properties can be used for Java or OpenAPI projects:
 Additionally, for OpenAPI services, the following properties can be used:
 
 - `WEB3J_OPENAPI_NAME`
-  Project name
+  Project name. This will also be the default Oepn API context path but can be changed through the Open API Gradle plugin.
 - `WEB3J_OPENAPI_CONTRACT_ADDRESSES`
-  Pre-deployed contract addresses as a map (Contract1=0x...,Contract2=0x...)
+  Pre-deployed contract addresses as a comma-separated list of pairs `<contract name>=<hex address>` (ie. Contract1=0x...,Contract2=0x...)
 - `WEB3J_OPENAPI_HOST`
-  Hostname for service, defaults to localhost
+  Hostname for service, defaults to `localhost`
 - `WEB3J_OPENAPI_PORT`
-  Port to bind to, defaults to 9090
+  Port to bind to, defaults to `9090`
 
 ## Running your application without an Epirus account
 
@@ -233,45 +233,45 @@ Your application code and tests will be located in the following project directo
 
 For Java:
 
-- `./src/main/java` - Generated Java application code stub
-- `./src/test/java` - Generated Java test code stubs
-- `./src/main/solidity` - Solidity source code
+- `src/main/java` - Generated Java application code stub
+- `src/test/java` - Generated Java test code stubs
+- `src/main/solidity` - Solidity source code
 
 For Kotlin:
 
-- `./src/main/kotlin` - Generated Kotlin application code stub
-- `./src/test/kotlin` - Generated Kotlin test code stubs
-- `./src/main/solidity` - Solidity source code
+- `src/main/kotlin` - Generated Kotlin application code stub
+- `src/test/kotlin` - Generated Kotlin test code stubs
+- `src/main/solidity` - Solidity source code
 
 If you need to edit the build file, it is located in the project root directory:
 
-- `./build.gradle` - Gradle build configuration file
+- `build.gradle` - Gradle build configuration file
 
 Additionally, there are the following Gradle artifacts which you can ignore.
 
-- `/gradle` - local Gradle installation
-- `/.gradle` - local Gradle cache
-- `/build` - compiled classes including smart contract bindings
+- `gradle` - local Gradle installation
+- `.gradle` - local Gradle cache
+- `build` - compiled classes including smart contract bindings
 
 If you need to view any of the generated Solidity or contract artifacts, they are available in the following locations.
 
 Solidity `bin` and `abi` files are located at:
 
-- `./build/resources/main/solidity/`
+- `<project directory>/build/resources/main/solidity/`
 
 The source code for the generated smart contract bindings can be found at:
 
-- `./build/generated/sources/epirus/main/java/<your-package>/generated/contracts`
+- `<project directory>/build/generated/sources/epirus/main/java/<your-package>/generated/contracts`
 
 The compiled code for the generated smart contracts bindings is available at the below location. These are the artifacts used to deploy, transact and query your smart contracts.
 
-- `./build/classes/java/main/<your-package>/generated/contracts/`
+- `build/classes/java/main/<your-package>/generated/contracts/`
 
 ## Generated OpenAPI project structure
 
-Similar to the Java/Kotlin projects. The Solidity files are located in the following `./src/main/solidity`.
+Similar to the Java/Kotlin projects. The Solidity files are located in the following `src/main/solidity`.
 
-Additionally, the generated OpenAPI code resides in `./build/generated/sources/web3j/main`, and is structured as follows :
+Additionally, the generated OpenAPI code resides in `build/generated/sources/web3j/main`, and is structured as follows :
  
 - Java smart contract wrappers :  `java/<package name>/wrappers`
 - REST endpoints interfaces : `kotlin/<package name>/core`
