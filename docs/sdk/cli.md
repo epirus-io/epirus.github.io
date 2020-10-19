@@ -179,7 +179,7 @@ The following configuration properties can be used for Java or OpenAPI projects:
 Additionally, for OpenAPI services, the following properties can be used:
 
 - `WEB3J_OPENAPI_NAME`
-  Project name. This will also be the default Oepn API context path but can be changed through the Open API Gradle plugin.
+  Project name. This will also be the default Open API context path but can be changed through the Open API Gradle plugin.
 - `WEB3J_OPENAPI_CONTRACT_ADDRESSES`
   Pre-deployed contract addresses as a comma-separated list of pairs `<contract name>=<hex address>` (ie. Contract1=0x...,Contract2=0x...)
 - `WEB3J_OPENAPI_HOST`
