@@ -269,7 +269,7 @@ The compiled code for the generated smart contracts bindings is available at the
 
 ## Generated OpenAPI project structure
 
-Similar to the Java/Kotlin project, the Solidity files are located in `src/main/solidity`.
+Similar to the Java/Kotlin projects, the Solidity files are located in `src/main/solidity`.
 
 Additionally, the generated OpenAPI code resides in `build/generated/sources/web3j/main`, and is structured as follows :
  
