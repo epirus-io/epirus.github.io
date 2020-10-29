@@ -278,7 +278,39 @@ Additionally, the generated OpenAPI code resides in `./build/generated/sources/w
 - REST endpoints implementations : `kotlin/<package name>/server`
 - SwaggerUI : `resources/static/swagger-ui`
 
-For the ERC777 OpenAPI generated API, it is not intended to be modified once generated. I.e. it is only meant to be run by the user to deploy and interact directly with the token.
+For standard contracts like the ERC777, the generated OpenAPI is not intended to be modified once generated. I.e. it is only meant to be run by the user to deploy and interact directly with the token, but you can also add other contracts and they will be included in the project OpenAPI.
+
+### Client/server separation
+
+In some situations, you might want to separate the client and server artifacts for different ends 
+(e.g. call a contract from a Java application using the [Web3j-OpenAPI Client](https://docs.web3j.io/web3j_openapi/#client-application) module).
+
+To do this you can use this Gradle configuration to generate separate JARs for client and server, and even publish the as separate Maven artifacts:
+
+```groovy
+task clientJar(type: Jar) {
+    from "$buildDir/classes/kotlin/main"
+    include "**/core/**/*.class"
+    includeEmptyDirs false
+    archiveAppendix.set("openapi-client")
+}
+
+task serverJar(type: Jar) {
+    from "$buildDir/classes/java/main"
+    from("$buildDir/classes/kotlin/main") {
+        include "**/server/**/*.class"
+    }
+    from("$buildDir/resources/main") {
+        include "META-INF/services/*"
+    }
+    includeEmptyDirs false
+    archiveAppendix.set("openapi-server")
+}
+
+artifacts {
+    archives clientJar, serverJar
+}
+```
 
 ## Build commands
 
