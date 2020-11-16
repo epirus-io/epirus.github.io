@@ -42,8 +42,8 @@ $ epirus -v
  |______| .__/|_|_|   \__,_|___/
         | |                     
         |_|                     
-Version: 1.0.0
-Build timestamp: 2020-08-10 22:42:28.435 UTC
+Version: 1.4.0
+Build timestamp: 2020-11-12 08:56:24.594 UTC
 ```
 
 Alternatively you can download the latest CLI release [here](https://github.com/epirus-io/epirus-cli/releases/latest).
@@ -56,6 +56,7 @@ For Java or Kotlin projects, they provide the following functionality:
 
 - Base project creation.
 - Generation of a simple *Hello World* Solidity contract or import an existing Solidity project from a file or directory.
+- Generation of ERC20 and ERC777 Java projects using : `epirus new erc20 | erc777`
 - Compilation of the Solidity files.
 - Configure the project to use the Gradle build tool.
 - Generate Java smart contract wrappers for all provided Solidity files.
@@ -67,6 +68,7 @@ In the case of an OpenAPI service, with the command `epirus openapi new`, Epirus
 Epirus also gives you the ability to do more via:
 
 - Base OpenAPI project creation : `epirus openapi new`.
+- ERC20 and ERC777 OpenAPI project creation : `epirus openapi new erc20 | erc777`
 - Create an OpenAPI project using specific contracts : `epirus openapi import`.
 - Generate an OpenAPI executable JAR : `epirus openapi jar`.
 - Generate RESTful endpoints and their implementation : `epirus openapi generate`.
@@ -76,7 +78,7 @@ Epirus also gives you the ability to do more via:
 To generate a new project :
 
 ``` shell
-epirus new [--kotlin|-o <output path>|-n <project name>|-p <package name>] [helloworld|erc777]
+epirus new [--kotlin|-o <output path>|-n <project name>|-p <package name>] [helloworld|erc20|erc777]
 ``` 
 
 Where supported `new` command arguments are as follows:
@@ -87,6 +89,10 @@ Where supported `new` command arguments are as follows:
   Use a simple Hello World Solidity smart contract (default)
 - `erc777`
   Create an [ERC777](https://eips.ethereum.org/EIPS/eip-777) compliant token
+- `erc20`
+  Create an [ERC20](https://eips.ethereum.org/EIPS/eip-20) compliant token
+
+The ERC20 and ERC777 contracts are based on the [OpenZeppelin](https://openzeppelin.com/) implementations.
 
 The `project name ` and `package name` values must comply with the JVM standards. The project name is also used as the main class name.
 
@@ -107,7 +113,7 @@ epirus import -s <path to solidity sources> [-o <path>|-n <project name>|-p <pac
 ```
 
 The `-s` option will work with a single Solidity file or a folder containing Solidity files.
-The `-t` option is false by default. By passing `-t` unit tests will be generated for the Java wrappers.
+The `-t` option is true by default. By passing `-t` unit tests will be generated for the Java wrappers.
 
 or 
 
@@ -133,8 +139,6 @@ You will be prompted to answer a series of questions to create your project:
 
 Please enter the path to your solidity file/folder [Required Field]: 
 /path/to/solidity
-Would you like to generate unit test for your solidity contracts [Y/n] ? 
-n
 ...
 ```
 
@@ -211,6 +215,12 @@ OpenAPI projects
 
 - `build/libs/<projectName>-server-all.jar`
 
+Or, for OpenAPI, you can generate an executable JAR directly using:
+
+```shell script
+$ epirus openapi jar <args>
+```
+
 ### Running with Docker
 
 If running the built container with Docker, you should use the following syntax to pass in environment variables:
@@ -277,8 +287,6 @@ Additionally, the generated OpenAPI code resides in `./build/generated/sources/w
 - REST endpoints interfaces : `kotlin/<package name>/core`
 - REST endpoints implementations : `kotlin/<package name>/server`
 - SwaggerUI : `resources/static/swagger-ui`
-
-For the ERC777 OpenAPI generated API, it is not intended to be modified once generated. I.e. it is only meant to be run by the user to deploy and interact directly with the token.
 
 ## Build commands
 

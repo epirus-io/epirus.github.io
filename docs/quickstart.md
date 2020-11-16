@@ -48,19 +48,14 @@ $ epirus new
  |______| .__/|_|_|   \__,_|___/
         | |                     
         |_|                     
-Please enter the project name [Web3App]:
+[ / ] Creating and building project ... Subsequent builds will be faster
 
-Please enter the package name for your project [io.epirus]:
-
-Please enter the destination of your project [/home/user/Web3App]: 
-
-[ \ ] Creating Web3App
 Project Created Successfully
 
 Commands
-./gradlew test                      Test your application
-epirus run <network>                Runs your application
-epirus docker run rinkeby|ropsten   Runs your application in a docker container
+./gradlew test                          Test your application
+epirus run rinkeby|ropsten              Runs your application
+epirus docker run rinkeby|ropsten       Runs your application in a docker container
 ```
 
 Epirus has now created and built a full project, which includes a *Hello World* smart contract, and all the necessary code to interact with it, test it, and run it. 
@@ -68,10 +63,11 @@ Epirus has now created and built a full project, which includes a *Hello World* 
 Alternatively, if you'd like to try a more advanced option, you can run:
 
 ``` shell
-epirus openapi new erc777
+$ epirus openapi new erc777
 ```
 
 This will create an OpenAPI service for deploying and managing ERC777 compliant tokens on the Ethereum network.
+Other alternatives, such as ERC20 contracts, will be discussed below.
 
 Check the [Web3j-OpenAPI](https://docs.web3j.io/web3j_openapi) documentation for more information.
 
@@ -135,30 +131,30 @@ $ epirus docker build
  |______| .__/|_|_|   \__,_|___/
         | |                     
         |_|                     
-Sending build context to Docker daemon  266.5MB
-Step 1/6 : FROM adoptopenjdk/openjdk11
- ---> 7e3294f3fe18
-Step 2/6 : RUN mkdir /opt/app
+Sending build context to Docker daemon  80.19MB
+Step 1/8 : FROM ubuntu as Build
+ ---> bb0eaf4eee00
+Step 2/8 : COPY . /root/app
  ---> Using cache
- ---> 79a88106f9ad
-Step 3/6 : COPY . /opt/app
- ---> 7daa9a4de203
-Step 4/6 : WORKDIR /opt/app
- ---> Running in 58275e4950e5
-Removing intermediate container 58275e4950e5
- ---> a5d173dc6262
-Step 5/6 : RUN curl -L get.epirus.io | sh
- ---> Running in 6d78bbe9ac9d
-Downloading Epirus ...
-######################################################################## 100.0%##O#- #                                                                       
-Installing Epirus...
-Removing intermediate container 6d78bbe9ac9d
- ---> f639d7b6d685
-Step 6/6 : ENTRYPOINT ["/root/.epirus/epirus", "deploy", "rinkeby"]
- ---> Running in e61abc4ed69f
-Removing intermediate container e61abc4ed69f
- ---> 190fd6db0298
-Successfully built 190fd6db0298
+ ---> d026d00a2b22
+Step 3/8 : RUN apt-get update && apt-get install -y 	curl bash openjdk-11-jre 	&& rm -rf /var/cache/apk/* 	&& curl -L get.epirus.io | sh 	&& /root/.epirus/epirus 	&& cd /root/app 	&& ./gradlew generateContractWrappers
+ ---> Using cache
+ ---> 29dc085b698c
+Step 4/8 : FROM alpine
+ ---> a24bb4013296
+Step 5/8 : COPY --from=Build /root /root/
+ ---> Using cache
+ ---> 871dbb346cb2
+Step 6/8 : RUN apk add --no-cache bash openjdk11-jre	&& rm -rf /var/cache/apk/* 	&& mkdir /opt/app
+ ---> Using cache
+ ---> 012de0ea89e4
+Step 7/8 : WORKDIR /root/app
+ ---> Using cache
+ ---> 0f75612f7a98
+Step 8/8 : ENTRYPOINT ["/root/.epirus/epirus", "run", "rinkeby"]
+ ---> Using cache
+ ---> 0b206554fa1e
+Successfully built 0b206554fa1e
 Successfully tagged web3app:latest
 ```
 
