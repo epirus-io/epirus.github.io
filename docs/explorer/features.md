@@ -9,14 +9,14 @@ The Epirus dashboard provides a summary of key metrics of the blockchain contrac
 - Total transactions, token contracts and peers
 - Graphical transaction count broken down by transaction type (contract creation, contract transaction, currency transfer)
 - Most active contracts
-- Fungible (ERC20) versus non-fungible token contracts (ERC721)
+- Fungible (ERC20 and ERC777) versus non-fungible token contracts (ERC721)
 
 ![Dashboard view](./img/dashboard.png)
 
 ## Tokens
 
 The tokens view provides a view of all tokens deployed in the network, with separate labels for 
-fungible or non-fungible tokens following the [ERC20](http://eips.ethereum.org/EIPS/eip-20) and [ERC721](http://eips.ethereum.org/EIPS/eip-721) Ethereum standards respectively.
+fungible or non-fungible tokens following the [ERC20](http://eips.ethereum.org/EIPS/eip-20), [ERC777](http://eips.ethereum.org/EIPS/eip-777) and [ERC721](http://eips.ethereum.org/EIPS/eip-721) Ethereum standards respectively.
 
 ![Tokens view](./img/tokens.png)
 
@@ -38,7 +38,7 @@ The contracts view displays all contracts that have been deployed to your networ
 
 ![Contracts view](./img/contracts.png)
 
-Here you can see details of all contracts deployed to the network. Those contracts that comply with well defined interfaces are automatically tagged with a type in the `Label` column to reflect this. For example, `ERC20` for fungible token contracts, `ERC721` for non-fungible token contracts, and Custom for those that have not been registered in the contract registry.
+Here you can see details of all contracts deployed to the network. Those contracts that comply with well defined interfaces are automatically tagged with a type in the `Label` column to reflect this. For example, `ERC20` and `ERC777` for fungible token contracts, `ERC721` for non-fungible token contracts, and Custom for those that have not been registered in the contract registry.
 
 The `Name` column provides the contract name if the contract is registered in the Epirus contract registry. To learn more about the contract registry, head [here](metadata.md).
 
