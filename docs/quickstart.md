@@ -69,7 +69,7 @@ $ epirus openapi new erc777
 This will create an OpenAPI service for deploying and managing ERC777 compliant tokens on the Ethereum network.
 Other alternatives, such as ERC20 contracts, will be discussed below.
 
-Check the [Web3j-OpenAPI](https://docs.web3j.io/web3j_openapi) documentation for more information.
+Check the [Web3j-OpenAPI](https://docs.web3j.io/latest/web3j_openapi) documentation for more information.
 
 ## Account Creation
 
