@@ -465,7 +465,7 @@ This functionality is provided by [SmartCheck](https://github.com/smartdec/smart
 
 ## Solidity smart contract wrapper generator
 
-Please refer to [solidity smart contract wrappers](https://docs.web3j.io/smart_contracts/#solidity-smart-contract-wrappers).
+Please refer to [solidity smart contract wrappers](https://docs.web3j.io/latest/smart_contracts/#solidity-smart-contract-wrappers).
 
 
 ## Account Creation
