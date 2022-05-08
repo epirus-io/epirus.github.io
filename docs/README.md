@@ -1,25 +1,33 @@
-# Overview
+# Introduction
 
-The Epirus Platform is the complete solution for building and operating blockchain applications. 
+The Epirus blockchain explorer and smart contract registry is the go-to platform for both
+business and technical users for working with blockchain networks.
 
-It consists of three core components:
+![Epirus dashboard](./img/dashboard.png)
 
-- The [Epirus SDK](/sdk) for creating and running Ethereum blockchain applications.
-- The [Epirus Portal](/portal) for managing connectivity to Ethereum blockchain networks.
-- The [Epirus Explorer](/explorer) for viewing and monitoring your applications on the blockchain and the blockchain itself.
+It provides a rich interface for interpreting data on your ledger, with detailed views of:
 
-![Epirus Platform](./img/epirus_platform.png)
+- Smart contracts
+- Tokens
+- Transactions
+- Blocks
 
-Simplicity is at the heart of Epirus, with much of the complexity of working with blockchain hidden behind the scenes.
+The flexible user experience provides search, filtering and sorting capabilities, allowing users 
+to easily find the data they require.
 
-To get up and running with Epirus, please head to the [Quickstart](quickstart.md) to create, deploy and monitor your first Ethereum blockchain application.
+<iframe src="https://player.vimeo.com/video/333204985" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
-However, if you're super impatient, you could just run these commands:
+This is coupled with its integrated smart contract registry which provides unrivalled insights 
+into the behaviour of your blockchain applications, and a RESTful API to facilitate ad-hoc 
+reporting of your data.
 
-``` shell
-curl -L get.epirus.io | sh && source ~/.epirus/source.sh
-epirus new
-cd Web3App && epirus run rinkeby
-```
+![Epirus screenshot](./img/contract_details.png)
 
-However, we do encourage you to work through the [Quickstart](quickstart.md)!
+The [Features](features.md) section provides a more in-depth overview of Epirus.
+
+## Networks
+
+The Epirus blockchain explorer supports both public and private permissioned blockchains such as the Ethereum networks, 
+[Hyperledger Besu](https://www.hyperledger.org/projects/besu) and [Quorum](https://github.com/jpmorganchase/quorum) by J.P. Morgan. 
+
+There are live instances running against the [Rinkeby](https://rinkeby.epirus.io/) and [Ropsten](https://ropsten.epirus.io/) testnets for users with an [Epirus Portal](https://docs.epirus.io/portal) account.

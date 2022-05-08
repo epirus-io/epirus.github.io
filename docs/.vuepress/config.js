@@ -1,64 +1,31 @@
 module.exports = {
   title: 'Docs',
-  description: 'Documentation repository for the Epirus Platform',
+  description: 'Documentation repository for the Epirus Blockchain Explorer',
   head: [
     ['link', { rel: 'icon', href: '/epirus_logo.png' }]
   ],
   themeConfig: {
-    logo: '/epirus_platform_logo.png',
+    logo: '/epirus_explorer_logo.png',
     author: {
       name: 'Web3 Labs Team',
       twitter: '@web3labs'
     },
     nav: [
-      { text: 'Quickstart', link: '/quickstart/' },
-      { text: 'Epirus Platform', link: 'https://www.web3labs.com/epirus-platform' }
+      { text: 'Epirus Explorer', link: 'https://www.web3labs.com/epirus-explorer' }
     ],
     sidebar: [
-      {
-        title: 'Getting Started',
-        path: '/',
-        children: [
-          '',
-          'quickstart',
-        ]
-      },
-      {
-        title: 'Explorer',
-        path: '/explorer/',
-        children: [
-          '/explorer/',
-          '/explorer/getting_started',
-          '/explorer/features',
-          '/explorer/metadata',
-          '/explorer/mobile',
-          '/explorer/tagging',
-          '/explorer/rest',
-          '/explorer/web3j',
-          '/explorer/faqs',
-        ]
-      },
-      {
-        title: 'Portal',
-        path: '/portal/',
-        children: [
-          '/portal/',
-          '/portal/features'
-        ]
-      },
-      {
-        title: 'SDK',
-        path: '/sdk/',
-        children: [
-          '/sdk/',
-          '/sdk/cli',
-          '/sdk/faucets',
-          '/sdk/faqs'
-        ]
-      }
+          '/',
+          '/getting_started',
+          '/features',
+          '/metadata',
+          '/mobile',
+          '/tagging',
+          '/rest',
+          '/faqs',
     ],
+    //sidebarDepth: 1,
     lastUpdated: 'Last Updated',
-    displayAllHeaders: true,
+    displayAllHeaders: false,
     repo: 'epirus-io/epirus.github.io',
     // Customising the header label
     // Defaults to "GitHub"/"GitLab"/"Bitbucket" depending on `themeConfig.repo`
